@@ -12,11 +12,17 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScreen.unity
     guid: defd9f8d06a835043a5e7bffe00f915d
   - enabled: 1
-    path: Assets/Scenes/Loading Screen.unity
-    guid: bdbc2ae5477cf1a4a8e048b5fe23ecf5
+    path: Assets/Scenes/Select Level.unity
+    guid: 3b7fd247acf4d94419d844e4c74065cd
   - enabled: 1
     path: Assets/Scenes/Leaderboard Screen.unity
     guid: 2fc33a500eab78f449c00f84e7d97c21
+  - enabled: 1
+    path: Assets/Scenes/Loading Screen.unity
+    guid: bdbc2ae5477cf1a4a8e048b5fe23ecf5
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: b34344a0986fc0045b574d6636a07e80
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 243a2ae6a4b03f14e95450188a2b1c21, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 0089b8363e15f87498cf8ae76aa44614, type: 2}
