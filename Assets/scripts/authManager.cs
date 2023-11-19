@@ -5,6 +5,7 @@ using Unity.Services.Core;
 using Unity.Services.Authentication;
 using System.Threading.Tasks;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class authManager : MonoBehaviour
 {
@@ -21,17 +22,20 @@ public class authManager : MonoBehaviour
 
     async Task signInAnonymous()
     {
-        try{
+        try
+        {
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            print ("Sign in successful!");
-            print ("Player ID: " + AuthenticationService.Instance.PlayerId);
+            print("Sign in successful!");
+            print("Player ID: " + AuthenticationService.Instance.PlayerId);
             logTxt.text = "Player id: " + AuthenticationService.Instance.PlayerId;
+
+            SceneManager.LoadScene(0);        
         }
-        catch (AuthenticationException e){
+        catch (AuthenticationException e)
+        {
             print("Sign in failed!");
             Debug.LogException(e);
         }
-
     }
 
 }
