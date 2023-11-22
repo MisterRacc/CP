@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class EnemySpawnScript : MonoBehaviour
 {
-    public GameObject enemy;
+    public GameObject enemyPrefab;
     public float spawnRate;
     private float timer;
+    private float maxHeight = -100;
+    private float minHeight = -400;
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +23,16 @@ public class EnemySpawnScript : MonoBehaviour
             timer += Time.deltaTime;
         }
         else{
-            Instantiate(enemy, transform.position, transform.rotation);
-            timer = 0;
+            spawnEnemies();
         }
+    }
+
+    void spawnEnemies(){
+        float randomHeight = Random.Range(-400, -100);
+
+        GameObject enemy = Instantiate(enemyPrefab, new Vector3(transform.position.x, randomHeight, 0), Quaternion.identity);
+        enemy.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+
+        timer = 0;
     }
 }

@@ -1133,7 +1133,7 @@ Transform:
   m_GameObject: {fileID: 857690533}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1252, y: -78, z: 0}
+  m_LocalPosition: {x: 1252, y: -250, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1151,8 +1151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc3e536854f53444a570ecb65a567b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 6000883597378290780, guid: a9d60f0ce949dfe4486151b6d63b98ba, type: 3}
-  spawnRate: 2
+  enemyPrefab: {fileID: 6000883597378290780, guid: a9d60f0ce949dfe4486151b6d63b98ba, type: 3}
+  spawnRate: 4
 --- !u!1 &898282184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,7 +1242,7 @@ GameObject:
   - component: {fileID: 904906669}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1322,6 +1322,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 16751939}
   - {fileID: 898282185}
   - {fileID: 2141499086}
   - {fileID: 824408942}
@@ -1329,7 +1330,6 @@ RectTransform:
   - {fileID: 81884971}
   - {fileID: 67571997}
   - {fileID: 45458714}
-  - {fileID: 16751939}
   - {fileID: 377208199}
   - {fileID: 857690534}
   - {fileID: 1579523490}
