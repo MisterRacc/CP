@@ -5,7 +5,7 @@ using UnityEngine;
 public class Joystick : MonoBehaviour
 {
     public Transform player;
-    public float speed;
+    public float speed = 200;
     private bool touchStart = false;
     private Vector2 pointA;
     private Vector2 pointB;

@@ -8,5 +8,6 @@ public class ChangeScreen : MonoBehaviour
     public void MoveToScene(int sceneID)
     {
         SceneManager.LoadScene(sceneID);
+        Time.timeScale = 1;
     }
 }
