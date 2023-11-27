@@ -19,6 +19,8 @@ public class TakeDamage : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision){
-        logic.takeDamage();
+        if(collision.CompareTag("Fire") || collision.CompareTag("Enemy")){
+            logic.takeDamage();
+        }
     }
 }

@@ -16,6 +16,10 @@ public class MoveEnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        move();
+    }
+
+    private void move(){
         transform.position += (Vector3.left*moveSpeed)*Time.deltaTime;
 
         if(transform.position.x < deadZone){

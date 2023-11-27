@@ -8,6 +8,7 @@ TagManager:
   - Fire
   - Enemy
   - Logic
+  - Bunny
   layers:
   - Default
   - TransparentFX
