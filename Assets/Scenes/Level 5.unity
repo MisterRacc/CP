@@ -1528,6 +1528,7 @@ GameObject:
   - component: {fileID: 1491453723}
   - component: {fileID: 1491453725}
   - component: {fileID: 1491453724}
+  - component: {fileID: 1491453726}
   m_Layer: 5
   m_Name: Current Time Left
   m_TagString: Untagged
@@ -1574,7 +1575,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 4:57
+  m_text: 0:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1651,6 +1652,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491453722}
   m_CullTransparentMesh: 1
+--- !u!114 &1491453726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491453722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb40445891b57049ae0f5ed3b7ba62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeRemaining: 0
+  timerIsRunning: 1
+  timeText: {fileID: 1491453724}
 --- !u!1 &1805501024
 GameObject:
   m_ObjectHideFlags: 0
