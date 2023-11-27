@@ -2,47 +2,75 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreUpdater : MonoBehaviour
-{   
+{
     private Text scoreText; // Reference to the Text component displaying the score
-    private int score = 0;   // Current score value
-
     private void Start()
-    {
-        // Find the "Score1" GameObject and get the Text component
-        GameObject scoreObject = GameObject.Find("Score1");
+{
+    // Find the "Current Score" GameObject
+    GameObject scoreObject = GameObject.Find("Current Score");
 
-        if (scoreObject != null)
+    if (scoreObject != null)
+    {
+        // Get the Text component directly from the GameObject
+        scoreText = scoreObject.GetComponent<Text>();
+
+        if (scoreText != null)
         {
-            scoreText = scoreObject.GetComponent<Text>();
+            Debug.Log("Text component found on 'Current Score' GameObject.");
+            
+            // Load the initial score from PlayerPrefs
+            LoadScore();
+            // Update the score text
+            UpdateScoreText();
         }
         else
         {
-            Debug.LogError("Score1 GameObject not found.");
+            Debug.LogError("Text component not found on 'Current Score' GameObject.");
         }
-
-        // Set the initial score
-        UpdateScoreText();
     }
+    else
+    {
+        Debug.LogError("Current Score GameObject not found.");
+    }
+}
+
 
     private void UpdateScoreText()
     {
         // Update the score text with the current score value
         if (scoreText != null)
         {
-            scoreText.text = score.ToString();
+            scoreText.text = ScoreMain.Instance.Score.ToString();
         }
         else
         {
-            Debug.LogError("Score1 Text component not found.");
+            Debug.LogError("Current Score Text component not found.");
         }
     }
 
     public void IncreaseScore()
     {
         // Increase the score by 100 each time the button is pressed
-        score += 100;
+        ScoreMain.Instance.IncreaseScore(100);
+
+        // Save the updated score to PlayerPrefs
+        SaveScore();
 
         // Update the score text
         UpdateScoreText();
     }
+
+    private void SaveScore()
+    {
+        // Save the score to PlayerPrefs
+        PlayerPrefs.SetInt("Score", ScoreMain.Instance.Score);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadScore()
+{
+    // Load the score from PlayerPrefs
+    ScoreMain.Instance.Score = PlayerPrefs.GetInt("Score", 0);
+}
+
 }

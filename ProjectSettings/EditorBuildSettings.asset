@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Configuration Screen.unity
     guid: 1d79a56c557997f42a1c9ba3154b3875
+  - enabled: 1
+    path: Assets/Scenes/FriendsScreen.unity
+    guid: 50998b5a38ba5c04b971461f9477ee4b
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 243a2ae6a4b03f14e95450188a2b1c21, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 0089b8363e15f87498cf8ae76aa44614, type: 2}
