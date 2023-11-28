@@ -15,10 +15,10 @@ MonoBehaviour:
   DevAccountEmail: diogoamandio@hotmail.com
   DevAccountToken: 5cucnxczx9qynrzcdhk5cumpbj3iokcd9k37ya61hcawggmh7gbpwotfmb6nrh6tjdx954yd7qd84jpsio79antannpgce7nq4tiomttw8qnuyn8p8iwt8pqfh1fwmsf1684g8hr86nbskmkndo9ssx56mgn7qk7njnyqrru6c3yzbneueok96674qppa69nwq8and5x
   AadAuthorization: 
-  SelectedStudio: 
-  SdkPath: Assets/PlayFabSdk
+  SelectedStudio: KillingSpread
+  SdkPath: Assets/PlayFabSDK
   EdExPath: 
   LocalCloudScriptPath: 
   PanelIsShown: 0
-  curMainMenuIdx: 0
+  curMainMenuIdx: 1
   curSubMenuIdx: 0
