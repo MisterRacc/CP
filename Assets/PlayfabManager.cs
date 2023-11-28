@@ -50,7 +50,16 @@ public class PlayfabManager : MonoBehaviour
     }
 
     public void LoginButton(){
+        var request = new LoginWithPlayFabRequest{
+            Username = usernameInput.text,
+            Password = passwordInput.text
+        };
+        PlayFabClientAPI.LoginWithPlayFab(request, OnLoginSuccess, OnError);
+    }
 
+    void OnLoginSuccess(LoginResult result){
+        messageText.text = "Successfully logged in!";
+        StartCoroutine(Waiter());
     }
 
     // Start is called before the first frame update
