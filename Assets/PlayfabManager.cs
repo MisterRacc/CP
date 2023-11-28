@@ -5,6 +5,7 @@ using PlayFab;
 using PlayFab.ClientModels;
 using Newtonsoft.Json;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayfabManager : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class PlayfabManager : MonoBehaviour
 
     void OnRegisterSuccess(RegisterPlayFabUserResult result){
         messageText.text = "Registered and logged in!";
+        StartCoroutine(Waiter());
     }
 
     void OnError(PlayFabError error){
@@ -41,6 +43,11 @@ public class PlayfabManager : MonoBehaviour
         Debug.LogError(error.GenerateErrorReport());
     }
 
+    IEnumerator Waiter()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(0);     
+    }
 
     public void LoginButton(){
 
