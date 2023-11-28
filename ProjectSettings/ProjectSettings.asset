@@ -799,11 +799,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 4e2f0b2f-c4ee-4fc7-ab74-90a7f5b9d9ec
+  cloudProjectId: f14669f1-346e-4c38-9068-e4760c642419
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: My project
-  organizationId: afonsocampo06
+  projectName: My project (1)
+  organizationId: diogo02gouveia
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

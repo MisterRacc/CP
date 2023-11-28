@@ -10,6 +10,9 @@ EditorBuildSettings:
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
     path: Assets/Scenes/StartScreen.unity
+    guid: 63c8c037199ae39438593a0f5352a9e5
+  - enabled: 1
+    path: Assets/Scenes/AuthScreen.unity
     guid: defd9f8d06a835043a5e7bffe00f915d
   - enabled: 1
     path: Assets/Scenes/Select Level.unity
@@ -29,6 +32,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Configuration Screen.unity
     guid: 1d79a56c557997f42a1c9ba3154b3875
+  - enabled: 1
+    path: Assets/Scenes/CreateAccountScreen.unity
+    guid: c0ce8fbc13d660a4f82da369c47df85d
+  - enabled: 1
+    path: Assets/Scenes/LoginScreen.unity
+    guid: 3bfabd366176bf744aac3aa7bb98bb02
   - enabled: 1
     path: Assets/Scenes/FriendsScreen.unity
     guid: 50998b5a38ba5c04b971461f9477ee4b
