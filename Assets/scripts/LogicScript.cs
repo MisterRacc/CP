@@ -10,10 +10,12 @@ public class LogicScript : MonoBehaviour
     public GameObject gameOverScreen;
     private bool bunnyCaught = false;
     private BunnyController bc;
+    private PlayerScript ps;
 
     void Start()
     {
         bc = GameObject.FindGameObjectWithTag("Bunny").GetComponent<BunnyController>();
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
     }
 
     public void takeDamage(){
@@ -36,6 +38,10 @@ public class LogicScript : MonoBehaviour
 
     public void setBunnyCaught(bool boolean){
         if(bc.areTheyTouching()){
+            bunnyCaught = boolean;
+        }
+
+        if(ps.getIfHit()){
             bunnyCaught = boolean;
         }
     }

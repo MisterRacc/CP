@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TakeDamage : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
     public LogicScript logic;
-    
+    private bool hit = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,12 +16,24 @@ public class TakeDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(getIfHit()){
+            logic.setBunnyCaught(false);
+            setIfHit(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.CompareTag("Fire") || collision.CompareTag("Enemy")){
             logic.takeDamage();
+            setIfHit(true);
         }
+    }
+
+    public void setIfHit(bool boolean){
+        hit = boolean;
+    }
+
+    public bool getIfHit(){
+        return hit;
     }
 }

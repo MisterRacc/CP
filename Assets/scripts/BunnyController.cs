@@ -12,6 +12,7 @@ public class BunnyController : MonoBehaviour
     private Transform target;
     public LogicScript logic;
     private bool areTouching = false;
+    private PlayerScript ps;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class BunnyController : MonoBehaviour
         timeSinceLastDirectionChange = 0;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -30,8 +32,6 @@ public class BunnyController : MonoBehaviour
         else{
             MoveBehindPlayer();
         }
-
-        Debug.Log(areTheyTouching());
     }
 
     // verifica se o player está em contacto com o coelho
