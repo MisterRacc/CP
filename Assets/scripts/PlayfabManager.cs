@@ -65,7 +65,10 @@ public class PlayfabManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+         if (passwordInput != null)
+        {
+            passwordInput.inputType = InputField.InputType.Password;
+        }
     }
 
     // Update is called once per frame
