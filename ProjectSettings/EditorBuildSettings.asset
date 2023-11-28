@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CreateAccountScreen.unity
     guid: c0ce8fbc13d660a4f82da369c47df85d
+  - enabled: 1
+    path: Assets/Scenes/Login.unity
+    guid: 3bfabd366176bf744aac3aa7bb98bb02
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 243a2ae6a4b03f14e95450188a2b1c21, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 0089b8363e15f87498cf8ae76aa44614, type: 2}
