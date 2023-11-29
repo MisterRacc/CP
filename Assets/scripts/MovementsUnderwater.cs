@@ -36,6 +36,10 @@ public class MovementsUnderwater : MonoBehaviour
         MoveInsideTheMap();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision){
+        if(collision.CompareTag("Hook")) Destroy(gameObject);
+    }
+
     void MoveInsideTheMap()
     {
         timeSinceLastDirectionChange += Time.deltaTime;

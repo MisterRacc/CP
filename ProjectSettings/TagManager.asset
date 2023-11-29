@@ -11,6 +11,9 @@ TagManager:
   - Bunny
   - LeftSpawner
   - RightSpawner
+  - Hook
+  - Fish
+  - Trash
   layers:
   - Default
   - TransparentFX
