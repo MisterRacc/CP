@@ -6,8 +6,8 @@ public class MasterSpawner : MonoBehaviour
 {
     public float spawnRate;
     private float timer;
-    public GameObject lfs;
-    public GameObject rfs;
+    public GameObject ls;
+    public GameObject rs;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +22,8 @@ public class MasterSpawner : MonoBehaviour
             timer += Time.deltaTime;
         }
         else{
-            if(Random.Range(0, 2) == 1){
-                lfs.GetComponent<LeftFishSpawner>().SpawnFishiesFromLeft();
-            }
-            else{
-                rfs.GetComponent<RightFishSpawner>().SpawnFishiesFromRight();
-            }
+            if(Random.Range(0, 2) == 1) ls.GetComponent<LeftSpawner>().SpawnFromLeft();
+            else rs.GetComponent<RightSpawner>().SpawnFromRight();
 
             timer = 0;
         }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6558762454598925251}
   - component: {fileID: 716976360367180144}
   - component: {fileID: 594757990074807381}
-  - component: {fileID: -5765488325706063952}
+  - component: {fileID: 164606632041671363}
   m_Layer: 0
   m_Name: trash
   m_TagString: Untagged
@@ -150,7 +150,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-5765488325706063952
+--- !u!114 &164606632041671363
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,6 +159,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7278539297958357043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f99677a847177cd4390993ffa07815ff, type: 3}
+  m_Script: {fileID: 11500000, guid: c901447c800132c48b5e447a9cdf3600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 150
+  changeDirectionInterval: 1

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 36873619}
   - component: {fileID: 36873620}
   m_Layer: 0
-  m_Name: Left Fish Spawner
+  m_Name: Left Spawner
   m_TagString: LeftSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishPrefab: {fileID: 7278539297958357043, guid: f32ed09bff8ca494e8f2dd041f7446e6, type: 3}
+  trashPrefab: {fileID: 7278539297958357043, guid: 650742a3fd1e624468781f41f20eeb48, type: 3}
 --- !u!1 &65371452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,8 +1945,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 3
-  lfs: {fileID: 36873618}
-  rfs: {fileID: 2079667342}
+  ls: {fileID: 36873618}
+  rs: {fileID: 2079667342}
 --- !u!1 &1575508520
 GameObject:
   m_ObjectHideFlags: 0
@@ -2806,7 +2807,7 @@ GameObject:
   - component: {fileID: 2079667343}
   - component: {fileID: 2079667344}
   m_Layer: 0
-  m_Name: Right Fish Spawner
+  m_Name: Right Spawner
   m_TagString: RightSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2840,6 +2841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishPrefab: {fileID: 7278539297958357043, guid: f32ed09bff8ca494e8f2dd041f7446e6, type: 3}
+  trashPrefab: {fileID: 7278539297958357043, guid: 650742a3fd1e624468781f41f20eeb48, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

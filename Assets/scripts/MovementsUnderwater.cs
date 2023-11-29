@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class FishMovements : MonoBehaviour
+public class MovementsUnderwater : MonoBehaviour
 {
     public float speed;
     public float changeDirectionInterval;
@@ -11,9 +11,9 @@ public class FishMovements : MonoBehaviour
     private int isMovingRight;
     private bool spawnFromLeft;
     private GameObject spawner;
-
-    private float minY = 100f;
-    private float maxY = 800f;
+    private float minY = 100;
+    private float maxY = 800;
+    private float deadZone;
 
     void Start()
     {
@@ -21,14 +21,14 @@ public class FishMovements : MonoBehaviour
 
         if(spawnFromLeft){
             spawner = GameObject.FindGameObjectWithTag("LeftSpawner");
-            isMovingRight = spawner.GetComponent<LeftFishSpawner>().MoveDirection();
+            isMovingRight = spawner.GetComponent<LeftSpawner>().MoveDirection();
+            deadZone = 2400;
         }
         else{
             spawner = GameObject.FindGameObjectWithTag("RightSpawner");
-            isMovingRight = spawner.GetComponent<RightFishSpawner>().MoveDirection();
+            isMovingRight = spawner.GetComponent<RightSpawner>().MoveDirection();
+            deadZone = -400;
         }
-
-        Debug.Log(spawnFromLeft);
     }
 
     void Update()
@@ -50,6 +50,8 @@ public class FishMovements : MonoBehaviour
         transform.position += Vector3.right*speed*isMovingRight*Time.deltaTime;
 
         ClampPosition();
+
+        CheckDeadzone();
     }
 
     void ClampPosition()
@@ -60,5 +62,9 @@ public class FishMovements : MonoBehaviour
 
     public void DefineSpawn(bool boolean){
         spawnFromLeft = boolean;
+    }
+
+    void CheckDeadzone(){
+        if(spawnFromLeft && transform.position.x > deadZone || !spawnFromLeft && transform.position.x < deadZone) Destroy(gameObject);
     }
 }
