@@ -10,7 +10,8 @@ public class FishMovements : MonoBehaviour
     private int isMovingUp;
     private int isMovingRight;
     private bool spawnFromLeft;
-    
+    private GameObject spawner;
+
     private float minY = 100f;
     private float maxY = 800f;
 
@@ -18,9 +19,14 @@ public class FishMovements : MonoBehaviour
     {
         timeSinceLastDirectionChange = changeDirectionInterval;
 
-        spawnFromLeft = Random.Range(0, 2) == 1 ? true : false;
-        if(spawnFromLeft) isMovingRight = GameObject.FindGameObjectWithTag("LeftSpawner").GetComponent<LeftFishSpawner>().MoveDirection();
-        else isMovingRight = GameObject.FindGameObjectWithTag("RightSpawner").GetComponent<RightFishSpawner>().MoveDirection();
+        if(spawnFromLeft){
+            spawner = GameObject.FindGameObjectWithTag("LeftSpawner");
+            isMovingRight = spawner.GetComponent<LeftFishSpawner>().MoveDirection();
+        }
+        else{
+            spawner = GameObject.FindGameObjectWithTag("RightSpawner");
+            isMovingRight = spawner.GetComponent<RightFishSpawner>().MoveDirection();
+        }
 
         Debug.Log(spawnFromLeft);
     }
@@ -50,5 +56,9 @@ public class FishMovements : MonoBehaviour
     {
         float clampedY = Mathf.Clamp(transform.position.y, minY, maxY);
         transform.position = new Vector3(transform.position.x, clampedY, transform.position.z);
+    }
+
+    public void DefineSpawn(bool boolean){
+        spawnFromLeft = boolean;
     }
 }

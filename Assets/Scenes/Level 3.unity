@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 36873618}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1063.2896, y: -411.6034, z: 4.117506}
+  m_LocalPosition: {x: -1089, y: -385, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92e99f8d9f4e6494c9f43ac58128d8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishPrefab: {fileID: 7278539297958357043, guid: f32ed09bff8ca494e8f2dd041f7446e6, type: 3}
 --- !u!1 &65371452
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +751,7 @@ GameObject:
   - component: {fileID: 760513590}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1905,6 +1906,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1495517374}
+  - component: {fileID: 1495517375}
   m_Layer: 0
   m_Name: Spawners
   m_TagString: Untagged
@@ -1929,6 +1931,21 @@ Transform:
   - {fileID: 2079667343}
   m_Father: {fileID: 760513593}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1495517375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495517373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5e54069bc5b6a4a9f19d8e7f718dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRate: 3
+  lfs: {fileID: 36873618}
+  rfs: {fileID: 2079667342}
 --- !u!1 &1575508520
 GameObject:
   m_ObjectHideFlags: 0
@@ -2804,7 +2821,7 @@ Transform:
   m_GameObject: {fileID: 2079667342}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1501.7104, y: -411.6034, z: 4.117506}
+  m_LocalPosition: {x: 1605, y: -382, z: 4.117506}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2822,6 +2839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49fbc826b4c5d34408dbfd23bcf1a333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishPrefab: {fileID: 7278539297958357043, guid: f32ed09bff8ca494e8f2dd041f7446e6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
