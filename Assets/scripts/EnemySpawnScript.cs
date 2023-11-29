@@ -28,7 +28,7 @@ public class EnemySpawnScript : MonoBehaviour
     }
 
     void spawnEnemies(){
-        float randomHeight = Random.Range(-400, -100);
+        float randomHeight = Random.Range(minHeight, maxHeight);
 
         GameObject enemy = Instantiate(enemyPrefab, new Vector3(1300, randomHeight, 0), Quaternion.identity);
         enemy.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
