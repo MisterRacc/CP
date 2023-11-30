@@ -259,13 +259,13 @@ MonoBehaviour:
       - m_Target: {fileID: 27853998}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 6
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Configuration Screen
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &219581713
@@ -670,13 +670,13 @@ MonoBehaviour:
       - m_Target: {fileID: 381661607}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 7
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: FriendsScreen
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &381661607
@@ -1043,13 +1043,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1179344761}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Select Level
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1179344759
@@ -1281,13 +1281,13 @@ MonoBehaviour:
       - m_Target: {fileID: 2042885341}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Leaderboard Screen
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2042885343

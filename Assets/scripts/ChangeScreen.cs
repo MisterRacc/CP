@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScreen : MonoBehaviour
 {
-    public void MoveToScene(int sceneID)
+    public void MoveToScene(string ecra)
     {
-        SceneManager.LoadScene(sceneID);
+        SceneManager.LoadScene(ecra);
         Time.timeScale = 1;
     }
 }

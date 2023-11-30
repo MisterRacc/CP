@@ -18,6 +18,7 @@ public class authManager : MonoBehaviour
     }
 
     public async void SignIn(){
+        
         await signInAnonymous();
     }
 
@@ -49,7 +50,7 @@ public class authManager : MonoBehaviour
     IEnumerator Waiter()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(0);     
+        SceneManager.LoadScene("StartScreen");     
     }
 
 }
