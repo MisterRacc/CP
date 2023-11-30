@@ -18,6 +18,6 @@ public class loginManager : MonoBehaviour
     }
 
     public void LoginRedirect(){
-        SceneManager.LoadScene(9);  
+        SceneManager.LoadScene("LoginScreen");  
     }
 }
