@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 87714545}
   - component: {fileID: 87714546}
   m_Layer: 5
-  m_Name: Toggle
+  m_Name: audioToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1086,6 +1086,7 @@ GameObject:
   - component: {fileID: 1362406798}
   - component: {fileID: 1362406797}
   - component: {fileID: 1362406796}
+  - component: {fileID: 1362406800}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1168,6 +1169,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1362406800}
+        m_TargetAssemblyTypeName: ConfigurationScript, Assembly-CSharp
+        m_MethodName: SaveConfigurationSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1362406796}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
@@ -1218,6 +1231,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362406794}
   m_CullTransparentMesh: 1
+--- !u!114 &1362406800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362406794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174fe8747dd9c5b4aa6fd852a225db02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioToggle: {fileID: 87714546}
+  musicToggle: {fileID: 1468143538}
 --- !u!1 &1406506293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,7 +1540,7 @@ GameObject:
   - component: {fileID: 1468143537}
   - component: {fileID: 1468143538}
   m_Layer: 5
-  m_Name: Toggle (1)
+  m_Name: musicToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

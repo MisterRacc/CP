@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreUpdater : MonoBehaviour
+public class ScoreAdder: MonoBehaviour
 {
-    private Text scoreText; // Reference to the Text component displaying the score
+    public Text scoreText; // Reference to the Text component displaying the score
     private void Start()
 {
     // Find the "Current Score" GameObject
@@ -35,7 +35,7 @@ public class ScoreUpdater : MonoBehaviour
 }
 
 
-    private void UpdateScoreText()
+    public void UpdateScoreText()
     {
         // Update the score text with the current score value
         if (scoreText != null)
@@ -48,10 +48,10 @@ public class ScoreUpdater : MonoBehaviour
         }
     }
 
-    public void IncreaseScore()
+    public void IncreaseScore(int score)
     {
         // Increase the score by 100 each time the button is pressed
-        ScoreMain.Instance.IncreaseScore(100);
+        ScoreMain.Instance.IncreaseScore(score);
 
         // Save the updated score to PlayerPrefs
         SaveScore();
@@ -60,14 +60,14 @@ public class ScoreUpdater : MonoBehaviour
         UpdateScoreText();
     }
 
-    private void SaveScore()
+    public void SaveScore()
     {
         // Save the score to PlayerPrefs
         PlayerPrefs.SetInt("Score", ScoreMain.Instance.Score);
         PlayerPrefs.Save();
     }
 
-    private void LoadScore()
+    public void LoadScore()
 {
     // Load the score from PlayerPrefs
     ScoreMain.Instance.Score = PlayerPrefs.GetInt("Score", 0);
