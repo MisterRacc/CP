@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a0459ed3b059c14b9d0b046d9734fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageText: {fileID: 0}
+  messageText: {fileID: 1937578932}
   usernameInput: {fileID: 661793126}
   passwordInput: {fileID: 265179914}
 --- !u!1 &219581713
