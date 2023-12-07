@@ -1,69 +1,83 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using PlayFab;
+using PlayFab.ClientModels;
+using Newtonsoft.Json;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class ScoreUpdater : MonoBehaviour
+public class PlayfabManager : MonoBehaviour
 {
-    private Text scoreText;
 
-    private void Start()
-    {
-        GameObject scoreObject = GameObject.Find("Current Score");
+    public Text messageText;
 
-        if (scoreObject != null)
-        {
-            scoreText = scoreObject.GetComponent<Text>();
+    public InputField usernameInput, passwordInput;
 
-            if (scoreText != null)
-            {
-                Debug.Log("Text component found on 'Current Score' GameObject.");
-
-                // Load the initial score from PlayerPrefs
-                LoadScore();
-                // Update the score text
-                UpdateScoreText();
+    public void RegisterButton(){
+        if (usernameInput != null && passwordInput != null)
+        {      
+            if (passwordInput.text.Length < 6){
+                messageText.text = "Password must be at least 6 characters long.";
+                return;
             }
-            else
-            {
-                Debug.LogError("Text component not found on 'Current Score' GameObject.");
-            }
+            var request = new RegisterPlayFabUserRequest{
+                Username = usernameInput.text,
+                Password = passwordInput.text,
+                RequireBothUsernameAndEmail = false
+            };
+            PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSuccess, OnError);
         }
-        else
+        else{
+            Debug.LogError("Username or password input field is empty!");
+        }
+    }
+
+    void OnRegisterSuccess(RegisterPlayFabUserResult result){
+        messageText.text = "Registered and logged in!";
+        PlayerPrefs.SetString("Username", usernameInput.text);
+        PlayerPrefs.SetInt("Score", 0);
+        StartCoroutine(Waiter());
+    }
+
+    void OnError(PlayFabError error){
+        messageText.text = error.ErrorMessage;
+        Debug.LogError(error.GenerateErrorReport());
+    }
+
+    IEnumerator Waiter()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(0);     
+    }
+
+    public void LoginButton(){
+        var request = new LoginWithPlayFabRequest{
+            Username = usernameInput.text,
+            Password = passwordInput.text
+        };
+        PlayFabClientAPI.LoginWithPlayFab(request, OnLoginSuccess, OnError);
+    }
+
+    void OnLoginSuccess(LoginResult result){
+        messageText.text = "Successfully logged in!";
+        PlayerPrefs.SetString("Username", usernameInput.text);
+        PlayerPrefs.SetInt("Score", 0);
+        StartCoroutine(Waiter());
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+         if (passwordInput != null)
         {
-            Debug.LogError("Current Score GameObject not found.");
+            passwordInput.inputType = InputField.InputType.Password;
         }
     }
 
-    private void UpdateScoreText()
+    // Update is called once per frame
+    void Update()
     {
-        if (scoreText != null)
-        {
-            scoreText.text = ScoreMain.Instance.Score.ToString();
-        }
-        else
-        {
-            Debug.LogError("Current Score Text component not found.");
-        }
-    }
 
-    public void IncreaseScore(int score)
-    {
-        ScoreMain.Instance.IncreaseScore(score);
-
-        // Save the updated score to PlayerPrefs
-        SaveScore();
-
-        // Update the score text
-        UpdateScoreText();
-    }
-
-    private void SaveScore()
-    {
-        PlayerPrefs.SetInt("Score", ScoreMain.Instance.Score);
-        PlayerPrefs.Save();
-    }
-
-    private void LoadScore()
-    {
-        ScoreMain.Instance.Score = PlayerPrefs.GetInt("Score", 0);
     }
 }
