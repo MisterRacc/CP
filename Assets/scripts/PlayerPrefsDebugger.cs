@@ -1,3 +1,4 @@
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class PlayerPrefsDebugger : MonoBehaviour
@@ -9,7 +10,13 @@ public class PlayerPrefsDebugger : MonoBehaviour
         {
             // Retrieve and print the value
             int scoreValue = PlayerPrefs.GetInt("Score");
+            int guestNumber = PlayerPrefs.GetInt("GuestNumber");
+            string userNumber = PlayerPrefs.GetString("Username");
+            int audioSetting = PlayerPrefs.GetInt("AudioSetting");
             Debug.Log("Score in PlayerPrefs: " + scoreValue);
+            Debug.Log("Guest: " + guestNumber);
+            Debug.Log("User: "+ userNumber);
+            Debug.Log("Audio: "+ audioSetting);
         }
         else
         {

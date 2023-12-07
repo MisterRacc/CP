@@ -33,7 +33,8 @@ public class authManager : MonoBehaviour
             int guestNumber = PlayerPrefs.GetInt("GuestNumber", 1);
             guestNumber++;
             PlayerPrefs.SetInt("GuestNumber", guestNumber);
-
+            PlayerPrefs.SetInt("Score", 0);
+            
             print("Guest Number: " + guestNumber);
             usernameTxt.text = "Welcome Guest" + guestNumber;
 
