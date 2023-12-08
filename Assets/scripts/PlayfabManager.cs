@@ -82,6 +82,24 @@ public class PlayfabManager : MonoBehaviour
         Debug.Log("Successfully updated leaderboard");
     }
 
+    public void GetLeaderboard(int level) {
+        var request = new GetLeaderboardRequest {
+            StatisticName = "Level "+level+" Score",
+            StartPosition = 0,
+            MaxResultsCount = 5
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardGet, OnError);
+    }
+
+    void OnLeaderboardGet(GetLeaderboardResult result) {
+        if (result.Leaderboard.Count > 0) {
+            foreach (var item in result.Leaderboard) {
+                Debug.Log(item.Position + " " + item.DisplayName + " " + item.StatValue);
+            }
+        }
+    }
+    
+
     // Start is called before the first frame update
     void Start()
     {
