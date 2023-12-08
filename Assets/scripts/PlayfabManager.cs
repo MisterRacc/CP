@@ -66,6 +66,22 @@ public class PlayfabManager : MonoBehaviour
         StartCoroutine(Waiter());
     }
 
+    public void SendLeaderboard(int score, int level) {
+        var request = new UpdatePlayerStatisticsRequest {
+            Statistics = new List<StatisticUpdate> {
+                new StatisticUpdate {
+                    StatisticName = "Level "+level+" Score",
+                    Value = score
+                }
+            }
+        };
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
+    }
+
+    void OnLeaderboardUpdate(UpdatePlayerStatisticsResult result) {
+        Debug.Log("Successfully updated leaderboard");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
