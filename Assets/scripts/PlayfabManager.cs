@@ -82,6 +82,12 @@ public class PlayfabManager : MonoBehaviour
         Debug.Log("Successfully updated leaderboard");
     }
 
+    private bool IsLeaderboardScreen()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        return currentScene.name == "Leaderboard Screen";
+    }
+
     public void GetLeaderboard(int level) {
         var request = new GetLeaderboardRequest {
             StatisticName = "Level "+level+" Score",
@@ -94,7 +100,7 @@ public class PlayfabManager : MonoBehaviour
     void OnLeaderboardGet(GetLeaderboardResult result) {
         if (result.Leaderboard.Count > 0) {
             foreach (var item in result.Leaderboard) {
-                Debug.Log(item.Position + " " + item.DisplayName + " " + item.StatValue);
+                Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
             }
         }
     }
@@ -103,10 +109,16 @@ public class PlayfabManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         if (passwordInput != null)
+        if (passwordInput != null)
         {
             passwordInput.inputType = InputField.InputType.Password;
         }
+
+        if (IsLeaderboardScreen())
+        {
+            GetLeaderboard(1);
+        }
+
     }
 
     // Update is called once per frame
