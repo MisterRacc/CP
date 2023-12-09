@@ -6,13 +6,20 @@ using PlayFab.ClientModels;
 using Newtonsoft.Json;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayfabManager : MonoBehaviour
 {
 
     public Text messageText;
 
+    public TextMeshProUGUI user1, user2, user3, user4, user5;
+
+    public TextMeshProUGUI score1, score2, score3, score4, score5;
+
     public InputField usernameInput, passwordInput;
+
+    private List<string> playerIds;
 
     public void RegisterButton(){
         if (usernameInput != null && passwordInput != null)
@@ -24,6 +31,7 @@ public class PlayfabManager : MonoBehaviour
             var request = new RegisterPlayFabUserRequest{
                 Username = usernameInput.text,
                 Password = passwordInput.text,
+                DisplayName = usernameInput.text,
                 RequireBothUsernameAndEmail = false
             };
             PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSuccess, OnError);
@@ -66,13 +74,119 @@ public class PlayfabManager : MonoBehaviour
         StartCoroutine(Waiter());
     }
 
+    public void SendLeaderboard(int score, int level) {
+        var request = new UpdatePlayerStatisticsRequest {
+            Statistics = new List<StatisticUpdate> {
+                new StatisticUpdate {
+                    StatisticName = "Level "+level+" Score",
+                    Value = score
+                }
+            }
+        };
+        PlayFabClientAPI.UpdatePlayerStatistics(request, OnLeaderboardUpdate, OnError);
+    }
+
+    void OnLeaderboardUpdate(UpdatePlayerStatisticsResult result) {
+        Debug.Log("Successfully updated leaderboard");
+    }
+
+    private bool IsLeaderboardScreen()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        return currentScene.name == "Leaderboard Screen";
+    }
+
+    public void GetLeaderboard(int level) {
+        var request = new GetLeaderboardRequest {
+            StatisticName = "Level "+level+" Score",
+            StartPosition = 0,
+            MaxResultsCount = 5
+        };
+        PlayFabClientAPI.GetLeaderboard(request, OnLeaderboardGet, OnError);
+    }
+
+    void OnLeaderboardGet(GetLeaderboardResult result) {
+        if (result.Leaderboard.Count > 0) {
+
+            playerIds = new List<string>();
+
+            for (int i = 0; i < result.Leaderboard.Count; i++) {
+                var item = result.Leaderboard[i];
+
+                playerIds.Add(item.PlayFabId);
+
+                TextMeshProUGUI userText = GetUserText(i + 1);
+                TextMeshProUGUI scoreText = GetScoreText(i + 1);
+
+                if (scoreText != null) scoreText.text = item.StatValue.ToString();
+                
+
+            }
+
+            GetPlayerProfiles();
+
+        }
+    }
+
+    TextMeshProUGUI GetUserText(int index) {
+        switch (index) {
+            case 1: return user1;
+            case 2: return user2;
+            case 3: return user3;
+            case 4: return user4;
+            case 5: return user5;
+            default: return null;
+        }
+    }
+
+    TextMeshProUGUI GetScoreText(int index) {
+        switch (index) {
+            case 1: return score1;
+            case 2: return score2;
+            case 3: return score3;
+            case 4: return score4;
+            case 5: return score5;
+            default: return null;
+        }
+    }
+
+    void GetPlayerProfiles() {
+        foreach (var playerId in playerIds) {
+            var request = new GetPlayerProfileRequest {
+                PlayFabId = playerId,
+                ProfileConstraints = new PlayerProfileViewConstraints {
+                    ShowDisplayName = true
+                }
+            };
+
+            PlayFabClientAPI.GetPlayerProfile(request, result => OnPlayerProfileGet(result), OnError);
+        }
+    }
+
+    void OnPlayerProfileGet(GetPlayerProfileResult result) {
+        if (result.PlayerProfile != null) {
+            int index = playerIds.IndexOf(result.PlayerProfile.PlayerId) + 1;
+            TextMeshProUGUI userText = GetUserText(index);
+
+            if (userText != null) userText.text = result.PlayerProfile.DisplayName;
+        }
+    }
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
-         if (passwordInput != null)
+        if (passwordInput != null)
         {
             passwordInput.inputType = InputField.InputType.Password;
         }
+
+        if (IsLeaderboardScreen())
+        {
+            GetLeaderboard(1);
+        }
+
     }
 
     // Update is called once per frame
