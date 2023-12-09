@@ -19,6 +19,8 @@ public class PlayfabManager : MonoBehaviour
 
     public InputField usernameInput, passwordInput;
 
+    private List<string> playerIds;
+
     public void RegisterButton(){
         if (usernameInput != null && passwordInput != null)
         {      
@@ -29,6 +31,7 @@ public class PlayfabManager : MonoBehaviour
             var request = new RegisterPlayFabUserRequest{
                 Username = usernameInput.text,
                 Password = passwordInput.text,
+                DisplayName = usernameInput.text,
                 RequireBothUsernameAndEmail = false
             };
             PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSuccess, OnError);
@@ -104,17 +107,24 @@ public class PlayfabManager : MonoBehaviour
 
     void OnLeaderboardGet(GetLeaderboardResult result) {
         if (result.Leaderboard.Count > 0) {
+
+            playerIds = new List<string>();
+
             for (int i = 0; i < result.Leaderboard.Count; i++) {
                 var item = result.Leaderboard[i];
+
+                playerIds.Add(item.PlayFabId);
 
                 TextMeshProUGUI userText = GetUserText(i + 1);
                 TextMeshProUGUI scoreText = GetScoreText(i + 1);
 
-                if (userText != null) userText.text = item.PlayFabId;
                 if (scoreText != null) scoreText.text = item.StatValue.ToString();
+                
 
-                Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
             }
+
+            GetPlayerProfiles();
+
         }
     }
 
@@ -125,7 +135,7 @@ public class PlayfabManager : MonoBehaviour
             case 3: return user3;
             case 4: return user4;
             case 5: return user5;
-            default: return null;  // Trate outros casos conforme necessário
+            default: return null;
         }
     }
 
@@ -136,9 +146,32 @@ public class PlayfabManager : MonoBehaviour
             case 3: return score3;
             case 4: return score4;
             case 5: return score5;
-            default: return null;  // Trate outros casos conforme necessário
+            default: return null;
         }
     }
+
+    void GetPlayerProfiles() {
+        foreach (var playerId in playerIds) {
+            var request = new GetPlayerProfileRequest {
+                PlayFabId = playerId,
+                ProfileConstraints = new PlayerProfileViewConstraints {
+                    ShowDisplayName = true
+                }
+            };
+
+            PlayFabClientAPI.GetPlayerProfile(request, result => OnPlayerProfileGet(result), OnError);
+        }
+    }
+
+    void OnPlayerProfileGet(GetPlayerProfileResult result) {
+        if (result.PlayerProfile != null) {
+            int index = playerIds.IndexOf(result.PlayerProfile.PlayerId) + 1;
+            TextMeshProUGUI userText = GetUserText(index);
+
+            if (userText != null) userText.text = result.PlayerProfile.DisplayName;
+        }
+    }
+
     
 
     // Start is called before the first frame update
