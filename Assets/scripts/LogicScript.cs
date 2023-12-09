@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using PlayFab;
+using PlayFab.ClientModels;
 
 public class LogicScript : MonoBehaviour
 {
@@ -37,7 +39,10 @@ public class LogicScript : MonoBehaviour
 
     public void gameOver(){
         gameOverScreen.SetActive(true);
-        PlayfabManager.SendLeaderboard(int.Parse(scoreText.text), 1);
+        if (PlayFabClientAPI.IsClientLoggedIn())
+        {
+            PlayfabManager.SendLeaderboard(int.Parse(scoreText.text), 1);
+        }
     }
 
     public bool IsBunnyCaught(){
