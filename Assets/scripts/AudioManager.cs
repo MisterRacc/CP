@@ -40,25 +40,29 @@ public class AudioManager : MonoBehaviour
     }
 
     public void SetAudioEnabled(bool isEnabled)
+{
+    if (audioSource != null)
     {
-        if (audioSource != null)
-        {
-            audioSource.enabled = isEnabled;
-        }
+        audioSource.enabled = isEnabled;
+        audioSource.volume = isEnabled ? 0.1f : 0f; // Set volume to 70% if enabled, otherwise 0
     }
+}
 
-    public void SetMusicEnabled(bool isEnabled)
+public void SetMusicEnabled(bool isEnabled)
+{
+    if (musicSource != null)
     {
-        if (musicSource != null)
+        if (isEnabled)
         {
-            if (isEnabled)
-            {
-                musicSource.Play();
-            }
-            else
-            {
-                musicSource.Stop();
-            }
+            musicSource.Play();
         }
+        else
+        {
+            musicSource.Stop();
+        }
+
+        musicSource.volume = isEnabled ? 0.1f : 0f; // Set volume to 70% if enabled, otherwise 0
     }
+}
+
 }
