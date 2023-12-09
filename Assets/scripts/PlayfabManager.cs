@@ -6,11 +6,16 @@ using PlayFab.ClientModels;
 using Newtonsoft.Json;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayfabManager : MonoBehaviour
 {
 
     public Text messageText;
+
+    public TextMeshProUGUI user1, user2, user3, user4, user5;
+
+    public TextMeshProUGUI score1, score2, score3, score4, score5;
 
     public InputField usernameInput, passwordInput;
 
@@ -99,9 +104,39 @@ public class PlayfabManager : MonoBehaviour
 
     void OnLeaderboardGet(GetLeaderboardResult result) {
         if (result.Leaderboard.Count > 0) {
-            foreach (var item in result.Leaderboard) {
+            for (int i = 0; i < result.Leaderboard.Count; i++) {
+                var item = result.Leaderboard[i];
+
+                TextMeshProUGUI userText = GetUserText(i + 1);
+                TextMeshProUGUI scoreText = GetScoreText(i + 1);
+
+                if (userText != null) userText.text = item.PlayFabId;
+                if (scoreText != null) scoreText.text = item.StatValue.ToString();
+
                 Debug.Log(item.Position + " " + item.PlayFabId + " " + item.StatValue);
             }
+        }
+    }
+
+    TextMeshProUGUI GetUserText(int index) {
+        switch (index) {
+            case 1: return user1;
+            case 2: return user2;
+            case 3: return user3;
+            case 4: return user4;
+            case 5: return user5;
+            default: return null;  // Trate outros casos conforme necessário
+        }
+    }
+
+    TextMeshProUGUI GetScoreText(int index) {
+        switch (index) {
+            case 1: return score1;
+            case 2: return score2;
+            case 3: return score3;
+            case 4: return score4;
+            case 5: return score5;
+            default: return null;  // Trate outros casos conforme necessário
         }
     }
     
