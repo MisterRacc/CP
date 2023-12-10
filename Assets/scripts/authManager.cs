@@ -34,6 +34,15 @@ public class authManager : MonoBehaviour
             guestNumber++;
             PlayerPrefs.SetInt("GuestNumber", guestNumber);
             PlayerPrefs.SetInt("Score", 0);
+
+            //Reset dos estados dos levels
+            PlayerPrefs.SetInt("Level" + 1 + "Completed", 1);
+            PlayerPrefs.SetInt("Level" + 2 + "Completed", 0);
+            PlayerPrefs.SetInt("Level" + 3 + "Completed", 0);
+            PlayerPrefs.SetInt("Level" + 4 + "Completed", 0);
+            PlayerPrefs.SetInt("Level" + 5 + "Completed", 0);
+            PlayerPrefs.SetInt("Level" + 6 + "Completed", 0);
+
             
             print("Guest Number: " + guestNumber);
             usernameTxt.text = "Welcome Guest" + guestNumber;
