@@ -4080,11 +4080,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8465a35cf969814e9a9e2141d3b922d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 100
+  lives: 5
   livesText: {fileID: 1182727648}
   gameOverScreen: {fileID: 990911522}
   scoreUpdater: {fileID: 2092068758}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 35578292}
   PlayfabManager: {fileID: 1116327956}
 --- !u!4 &2092068756
 Transform:
@@ -4125,7 +4125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec001ac7fbc854499619f34bc0c121a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 35578292}
 --- !u!114 &2092068759
 MonoBehaviour:
   m_ObjectHideFlags: 0
