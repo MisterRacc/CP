@@ -180,7 +180,7 @@ public class PlayfabManager : MonoBehaviour
         if (result.Leaderboard.Count > 0) {
 
             playerIds = new List<string>();
-
+            cleanLeaderboard();
             for (int i = 0; i < result.Leaderboard.Count; i++) {
                 var item = result.Leaderboard[i];
 
@@ -198,6 +198,20 @@ public class PlayfabManager : MonoBehaviour
 
         }
     }
+    void cleanLeaderboard() {
+    // Clear existing entries
+    playerIds.Clear();
+
+    // Clear TextMeshProUGUI components
+    for (int i = 1; i <= 5; i++) {
+        TextMeshProUGUI userText = GetUserText(i);
+        TextMeshProUGUI scoreText = GetScoreText(i);
+
+        if (userText != null) userText.text = "";
+        if (scoreText != null) scoreText.text = "";
+    }
+}
+
 
     TextMeshProUGUI GetUserText(int index) {
         switch (index) {
