@@ -4,6 +4,8 @@ using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine.UI;
+using TMPro;
+using System.Linq;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -20,6 +22,10 @@ public class InventoryManager : MonoBehaviour
 
     public List<Button> itemButtons;
 
+    public GameObject itemInfoPanel;
+    public TextMeshProUGUI itemNameText;
+    public TextMeshProUGUI itemDescriptionText;
+
     public void GetPlayerInventory()
     {
         var request = new GetUserInventoryRequest();
@@ -33,18 +39,46 @@ public class InventoryManager : MonoBehaviour
 
         foreach (var item in result.Inventory)
         {
-
             if (itemImageMapping.ContainsKey(item.DisplayName))
             {
                 string imagePath = itemImageMapping[item.DisplayName];
-                Debug.Log($"Imagem: {imagePath}");
-                SetButtonImage(itemIndex, imagePath);
+
+                GetCatalogItemDetails(item.ItemId, imagePath, item.DisplayName, itemIndex);
+
                 itemIndex++;
             }
         }
     }
 
-    private void SetButtonImage(int itemIndex, string imagePath)
+    private void GetCatalogItemDetails(string itemId, string imagePath, string displayName, int itemIndex)
+    {
+        var request = new GetCatalogItemsRequest();
+        request.CatalogVersion = "Beta";  // Substitua pelo nome da sua versão de catálogo
+
+        PlayFabClientAPI.GetCatalogItems(request, result =>
+        {
+            var itemDetails = result.Catalog.FirstOrDefault(catalogItem => catalogItem.ItemId == itemId);
+            if (itemDetails != null)
+            {
+                string itemDescription = itemDetails.Description;
+
+                Debug.Log($"Imagem: {imagePath}, DisplayName: {displayName}, Descrição: {itemDescription}");
+
+                SetButtonImage(itemIndex, imagePath, displayName, itemDescription);
+            }
+            else
+            {
+                Debug.LogWarning($"Detalhes do item não encontrados para o ItemId: {itemId}");
+            }
+        }, OnGetCatalogItemsFailure);
+    }
+
+    private void OnGetCatalogItemsFailure(PlayFabError error)
+    {
+        Debug.LogError("Falha ao obter detalhes do catálogo: " + error.ErrorMessage);
+    }
+
+    private void SetButtonImage(int itemIndex, string imagePath, string itemName, string itemDescription)
     {
         // Certifique-se de que o índice está dentro dos limites da lista de botões
         if (itemIndex >= 0 && itemIndex < itemButtons.Count)
@@ -58,6 +92,20 @@ public class InventoryManager : MonoBehaviour
                 if (sprite != null)
                 {
                     imageComponent.sprite = sprite;
+
+                    GameObject buttonObject = new GameObject("ItemButton");
+                    ItemButtonHandler buttonHandler = buttonObject.AddComponent<ItemButtonHandler>();
+                    buttonHandler.itemInfoPanel = itemInfoPanel;
+                    buttonHandler.itemNameText = itemNameText;
+                    buttonHandler.itemDescriptionText = itemDescriptionText;
+                    buttonHandler.SetItemInfo(itemName, itemDescription);
+
+                    // Configure o método a ser chamado no clique do botão
+                    Button button = itemButtons[itemIndex].GetComponent<Button>();
+                    if (button != null)
+                    {
+                        button.onClick.AddListener(buttonHandler.OnButtonClick);
+                    }
                 }
                 else
                 {
