@@ -28,13 +28,14 @@ public class LogicScript : MonoBehaviour
     }
 
     public void takeDamage(){
+        Debug.Log("taking damage");
         lives -= 1;
         livesText.text = lives.ToString();
-
         if(lives == 0){
             Time.timeScale = 0;
             gameOver();
         }
+        Debug.Log("lives: " + lives);
     }
 
     public void gameOver(){
@@ -48,9 +49,9 @@ public class LogicScript : MonoBehaviour
     public bool IsBunnyCaught(){
         return bunnyCaught;
     }
-
     public void setBunnyCaught(bool boolean){
         if(bc.areTheyTouching()){
+            Debug.Log("bunny caught");
             bunnyCaught = boolean;
             IncreaseScore();
         }
