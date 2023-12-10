@@ -28,7 +28,6 @@ public class LogicLevel3 : MonoBehaviour
 
         if (lives == 0)
         {
-            Time.timeScale = 0;
             gameOver();
         }
     }
@@ -40,16 +39,17 @@ public class LogicLevel3 : MonoBehaviour
 
     void gameOver()
     {
+        Time.timeScale = 0;
         gameOverScreen.SetActive(true);
     }
 
     public void IncreaseScore()
-{
-    if (scoreUpdater != null)
     {
-        // Increase the score using ScoreUpdater script
-        scoreUpdater.IncreaseScore(10); // You can adjust the score value as needed
+        if (scoreUpdater != null)
+        {
+            // Increase the score using ScoreUpdater script
+            scoreUpdater.IncreaseScore(10); // You can adjust the score value as needed
+        }
     }
-}
 
 }
