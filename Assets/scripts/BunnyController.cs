@@ -10,7 +10,7 @@ public class BunnyController : MonoBehaviour
     private bool isMovingUp = true;
     private bool isMovingLeft = true;
     private Transform target;
-    public LogicScript logic;
+    private LogicScript logic;
     private bool areTouching = false;
     private PlayerScript ps;
 
@@ -88,9 +88,10 @@ public class BunnyController : MonoBehaviour
     }
 
     void MoveBehindPlayer(){
-        if(Vector2.Distance(transform.position, target.position) > 3){
+        transform.position = Vector2.MoveTowards(transform.position, target.position, speed*Time.deltaTime);
+        /*if(Vector2.Distance(transform.position, target.position) > 3){
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed*Time.deltaTime);
-        }
+        }*/
     }
 
     public void setTouching(bool boolean){
