@@ -14,6 +14,8 @@ public class InventoryManager : MonoBehaviour
     {
         {"Fire Resistance Potion", "Fire resistance"},
         {"Energy Gel", "Energy gel"},
+        {"Health Potion", "Health Potion"},
+        {"Invisible Potion", "Invisibility potion"}
     };
 
     public List<Button> itemButtons;
@@ -31,7 +33,6 @@ public class InventoryManager : MonoBehaviour
 
         foreach (var item in result.Inventory)
         {
-            Debug.Log($"Item: {item.DisplayName}, Quantidade: {item.RemainingUses}");
 
             if (itemImageMapping.ContainsKey(item.DisplayName))
             {
