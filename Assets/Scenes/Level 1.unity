@@ -3103,6 +3103,7 @@ GameObject:
   - component: {fileID: 1396147858}
   - component: {fileID: 1396147857}
   - component: {fileID: 1396147856}
+  - component: {fileID: 1396147859}
   m_Layer: 5
   m_Name: QUIT
   m_TagString: Untagged
@@ -3152,9 +3153,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0.85490197, b: 0, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
+    m_PressedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
+    m_SelectedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3174,7 +3175,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1396147859}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 5
@@ -3224,6 +3225,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396147854}
   m_CullTransparentMesh: 1
+--- !u!114 &1396147859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396147854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69354644351551408dafe7fb5212375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageText: {fileID: 0}
 --- !u!1 &1400538671
 GameObject:
   m_ObjectHideFlags: 0
@@ -3612,6 +3626,7 @@ GameObject:
   - component: {fileID: 1456959317}
   - component: {fileID: 1456959316}
   - component: {fileID: 1456959315}
+  - component: {fileID: 1456959318}
   m_Layer: 5
   m_Name: REPLAY
   m_TagString: Untagged
@@ -3661,9 +3676,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0.85490197, b: 0, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
+    m_PressedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
+    m_SelectedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3683,7 +3698,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1456959318}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 5
@@ -3692,7 +3707,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 8
           m_FloatArgument: 0
-          m_StringArgument: Level 3
+          m_StringArgument: Level 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1456959316
@@ -3733,6 +3748,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456959313}
   m_CullTransparentMesh: 1
+--- !u!114 &1456959318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456959313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69354644351551408dafe7fb5212375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageText: {fileID: 0}
 --- !u!1 &1579523489
 GameObject:
   m_ObjectHideFlags: 0
@@ -4035,6 +4063,7 @@ GameObject:
   - component: {fileID: 1839643287}
   - component: {fileID: 1839643286}
   - component: {fileID: 1839643285}
+  - component: {fileID: 1839643288}
   m_Layer: 5
   m_Name: LEADERBOARD
   m_TagString: Untagged
@@ -4084,9 +4113,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0.85490197, b: 0, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.754717, g: 0.6452091, b: 0, a: 1}
+    m_PressedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
+    m_SelectedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4106,7 +4135,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1839643288}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 5
@@ -4115,7 +4144,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 8
           m_FloatArgument: 0
-          m_StringArgument: Level 3
+          m_StringArgument: Leaderboard Screen
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1839643286
@@ -4156,6 +4185,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839643283}
   m_CullTransparentMesh: 1
+--- !u!114 &1839643288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839643283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69354644351551408dafe7fb5212375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageText: {fileID: 0}
 --- !u!1 &1862034500
 GameObject:
   m_ObjectHideFlags: 0
@@ -4435,6 +4477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 5
   livesText: {fileID: 1182727648}
+  Interact: {fileID: 1579523492}
   gameOverScreen: {fileID: 990911522}
   scoreUpdater: {fileID: 2092068758}
   scoreText: {fileID: 35578292}

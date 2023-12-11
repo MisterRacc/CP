@@ -9,6 +9,7 @@ public class LogicScript : MonoBehaviour
 {
     public int lives;
     public Text livesText;
+    public Button Interact;
     public GameObject gameOverScreen;
     private bool bunnyCaught = false;
     private BunnyController bc;
@@ -27,9 +28,8 @@ public class LogicScript : MonoBehaviour
     }
     void ResetVariables()
 {
-    lives = 5;  // Or any other initial value you want to set
-
-    // Find and assign Text component dynamically
+    lives = 5;  
+    Interact.interactable = true;
     livesText = GameObject.Find("Current Lives").GetComponent<Text>();
     if (livesText == null)
     {
@@ -77,6 +77,7 @@ public class LogicScript : MonoBehaviour
     if (lives <= 0)
     {
         Time.timeScale = 0;
+        Interact.interactable = false;
         gameOver();
     }
 
