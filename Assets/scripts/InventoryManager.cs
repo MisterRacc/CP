@@ -10,7 +10,7 @@ using System.Linq;
 public class InventoryManager : MonoBehaviour
 {
 
-    private Dictionary<string, int> inventory = new Dictionary<string, int>();
+    private Dictionary<string, string> itemNameToInstanceIdMapping = new Dictionary<string, string>();
 
     private Dictionary<string, string> itemImageMapping = new Dictionary<string, string>
     {
@@ -25,6 +25,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject itemInfoPanel;
     public TextMeshProUGUI itemNameText;
     public TextMeshProUGUI itemDescriptionText;
+    public Button useItemButton;
 
     public void GetPlayerInventory()
     {
@@ -39,18 +40,18 @@ public class InventoryManager : MonoBehaviour
 
         foreach (var item in result.Inventory)
         {
+
             if (itemImageMapping.ContainsKey(item.DisplayName))
             {
                 string imagePath = itemImageMapping[item.DisplayName];
-
-                GetCatalogItemDetails(item.ItemId, imagePath, item.DisplayName, itemIndex);
+                GetCatalogItemDetails(item.ItemId, imagePath, item.DisplayName, itemIndex, item.ItemInstanceId);
 
                 itemIndex++;
             }
         }
     }
 
-    private void GetCatalogItemDetails(string itemId, string imagePath, string displayName, int itemIndex)
+    private void GetCatalogItemDetails(string itemId, string imagePath, string displayName, int itemIndex, string itemInstanceId)
     {
         var request = new GetCatalogItemsRequest();
         request.CatalogVersion = "Beta";  // Substitua pelo nome da sua versão de catálogo
@@ -62,9 +63,8 @@ public class InventoryManager : MonoBehaviour
             {
                 string itemDescription = itemDetails.Description;
 
-                Debug.Log($"Imagem: {imagePath}, DisplayName: {displayName}, Descrição: {itemDescription}");
+                SetButtonImage(itemIndex, imagePath, displayName, itemDescription, itemInstanceId);
 
-                SetButtonImage(itemIndex, imagePath, displayName, itemDescription);
             }
             else
             {
@@ -78,7 +78,7 @@ public class InventoryManager : MonoBehaviour
         Debug.LogError("Falha ao obter detalhes do catálogo: " + error.ErrorMessage);
     }
 
-    private void SetButtonImage(int itemIndex, string imagePath, string itemName, string itemDescription)
+    private void SetButtonImage(int itemIndex, string imagePath, string itemName, string itemDescription, string itemId)
     {
         // Certifique-se de que o índice está dentro dos limites da lista de botões
         if (itemIndex >= 0 && itemIndex < itemButtons.Count)
@@ -98,9 +98,9 @@ public class InventoryManager : MonoBehaviour
                     buttonHandler.itemInfoPanel = itemInfoPanel;
                     buttonHandler.itemNameText = itemNameText;
                     buttonHandler.itemDescriptionText = itemDescriptionText;
-                    buttonHandler.SetItemInfo(itemName, itemDescription);
+                    buttonHandler.useItemButton = useItemButton;
+                    buttonHandler.SetItemInfo(itemName, itemDescription, itemId);
 
-                    // Configure o método a ser chamado no clique do botão
                     Button button = itemButtons[itemIndex].GetComponent<Button>();
                     if (button != null)
                     {
@@ -121,40 +121,25 @@ public class InventoryManager : MonoBehaviour
         Debug.LogError("Falha ao obter inventário do jogador: " + error.ErrorMessage);
     }
 
-    public void AddItem(string itemId, int quantity)
-    {
-        if (inventory.ContainsKey(itemId))
-            inventory[itemId] += quantity;
-        else
-            inventory[itemId] = quantity;
-    }
-
-    public void RemoveItem(string itemId, int quantity)
-    {
-        if (inventory.ContainsKey(itemId))
-        {
-            inventory[itemId] -= quantity;
-            if (inventory[itemId] <= 0)
-                inventory.Remove(itemId);
-        }
-    }
-
     public void ConsumeItem(string itemId)
     {
-        if (inventory.ContainsKey(itemId) && inventory[itemId] > 0)
-        {
-            // Implemente a lógica para consumir o item aqui
 
-            // Por exemplo, se for uma cura, adicione lógica de cura ao jogador.
-            // Se for uma moeda, adicione lógica para aumentar a pontuação, etc.
+            var request = new ConsumeItemRequest
+            {
+                ItemInstanceId = itemId,
+                ConsumeCount = 1 
+            };
+            PlayFabClientAPI.ConsumeItem(request, result =>
+            {
+                Debug.Log("Item consumido com sucesso: " + itemId);
 
-            // Após o consumo, remova o item do inventário
-            RemoveItem(itemId, 1);
-        }
-        else
-        {
-            Debug.LogWarning("Item não encontrado no inventário ou quantidade insuficiente.");
-        }
+            }, OnConsumeItemFailure);
+
+    }
+
+    private void OnConsumeItemFailure(PlayFabError error)
+    {
+        Debug.LogError("Falha ao consumir item: " + error.ErrorMessage);
     }
 
 

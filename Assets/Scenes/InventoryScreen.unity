@@ -1454,6 +1454,7 @@ MonoBehaviour:
   itemInfoPanel: {fileID: 1837127056}
   itemNameText: {fileID: 1160729814}
   itemDescriptionText: {fileID: 1589075769}
+  useItemButton: {fileID: 1641457189}
 --- !u!1 &1494035833
 GameObject:
   m_ObjectHideFlags: 0
@@ -2077,7 +2078,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1641457190}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2076908860}
+        m_TargetAssemblyTypeName: ItemButtonHandler, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1641457190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2422,6 +2435,7 @@ MonoBehaviour:
   itemInfoPanel: {fileID: 1837127056}
   itemNameText: {fileID: 1160729814}
   itemDescriptionText: {fileID: 1589075769}
+  useItemButton: {fileID: 0}
 --- !u!1 &1875789733
 GameObject:
   m_ObjectHideFlags: 0
@@ -3037,6 +3051,7 @@ MonoBehaviour:
   itemInfoPanel: {fileID: 1837127056}
   itemNameText: {fileID: 0}
   itemDescriptionText: {fileID: 0}
+  useItemButton: {fileID: 0}
 --- !u!4 &2076908861
 Transform:
   m_ObjectHideFlags: 0
@@ -3045,7 +3060,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076908859}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 945.4735, y: 492.7499, z: -8.532634}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
