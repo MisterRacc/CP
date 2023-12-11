@@ -703,6 +703,7 @@ GameObject:
   - component: {fileID: 475452095}
   - component: {fileID: 475452094}
   - component: {fileID: 475452093}
+  - component: {fileID: 475452096}
   m_Layer: 5
   m_Name: REPLAY
   m_TagString: Untagged
@@ -752,9 +753,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0.85490197, b: 0, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
+    m_PressedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
+    m_SelectedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -774,7 +775,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 475452096}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 5
@@ -824,6 +825,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475452091}
   m_CullTransparentMesh: 1
+--- !u!114 &475452096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475452091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69354644351551408dafe7fb5212375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageText: {fileID: 0}
 --- !u!1 &662716769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,6 +1631,7 @@ GameObject:
   - component: {fileID: 1068322888}
   - component: {fileID: 1068322887}
   - component: {fileID: 1068322886}
+  - component: {fileID: 1068322889}
   m_Layer: 5
   m_Name: QUIT
   m_TagString: Untagged
@@ -1666,9 +1681,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0.85490197, b: 0, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
+    m_PressedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
+    m_SelectedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1688,7 +1703,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1068322889}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 5
@@ -1738,6 +1753,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1068322884}
   m_CullTransparentMesh: 1
+--- !u!114 &1068322889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068322884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69354644351551408dafe7fb5212375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageText: {fileID: 0}
 --- !u!1 &1074465837
 GameObject:
   m_ObjectHideFlags: 0
@@ -2421,6 +2449,7 @@ GameObject:
   - component: {fileID: 1636517845}
   - component: {fileID: 1636517844}
   - component: {fileID: 1636517843}
+  - component: {fileID: 1636517846}
   m_Layer: 5
   m_Name: LEADERBOARD
   m_TagString: Untagged
@@ -2470,9 +2499,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0.85490197, b: 0, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
+    m_PressedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
+    m_SelectedColor: {r: 0.7529412, g: 0.64705884, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2492,7 +2521,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1636517846}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 5
@@ -2501,7 +2530,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 8
           m_FloatArgument: 0
-          m_StringArgument: Level 3
+          m_StringArgument: Leaderboard Screen
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1636517844
@@ -2542,6 +2571,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636517841}
   m_CullTransparentMesh: 1
+--- !u!114 &1636517846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636517841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69354644351551408dafe7fb5212375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageText: {fileID: 0}
 --- !u!1 &1671036411
 GameObject:
   m_ObjectHideFlags: 0
