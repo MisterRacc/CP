@@ -1,35 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
-public class LevelTimer : MonoBehaviour
+public class CountdownTimer : MonoBehaviour
 {
-    public float timeRemaining = 0;
-    public bool timerIsRunning = true;
+    public float startingTime = 120; // Tempo inicial em segundos
+    private float timeRemaining;
     public TMP_Text timeText;
-    // Start is called before the first frame update
+    public bool timerIsRunning = true;
+
     void Start()
     {
-        timerIsRunning=true;
+        timeRemaining = startingTime;
+        DisplayTime(timeRemaining);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(timerIsRunning){
-            if(timeRemaining>=0){
-                timeRemaining+=Time.deltaTime;
+        if (timerIsRunning)
+        {
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
                 DisplayTime(timeRemaining);
+            }
+            else
+            {
+                Debug.Log("Tempo esgotado!");
+                timeRemaining = 0;
+                timerIsRunning = false;
             }
         }
     }
 
-    void DisplayTime(float timeToDisplay){
-        timeToDisplay+=1;
-        float minutes = Mathf.FloorToInt(timeToDisplay/60);
-        float seconds = Mathf.FloorToInt(timeToDisplay%60);
-        timeText.text = string.Format("{0:00}:{1:00}",minutes,seconds);
+    void DisplayTime(float timeToDisplay)
+    {
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
