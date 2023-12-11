@@ -1410,6 +1410,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 625670420}
   speed: 200
+  minX: 300
+  maxX: 2000
+  minY: 20
+  maxY: 350
 --- !u!1 &625670419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,6 +1611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69354644351551408dafe7fb5212375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageText: {fileID: 0}
 --- !u!114 &750128883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3353,6 +3358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69354644351551408dafe7fb5212375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageText: {fileID: 0}
 --- !u!114 &1415402867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3498,6 +3504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69354644351551408dafe7fb5212375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageText: {fileID: 0}
 --- !u!114 &1444619119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4113,6 +4120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69354644351551408dafe7fb5212375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageText: {fileID: 0}
 --- !u!114 &2092068758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4322,6 +4330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69354644351551408dafe7fb5212375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageText: {fileID: 0}
 --- !u!114 &2141499088
 MonoBehaviour:
   m_ObjectHideFlags: 0
