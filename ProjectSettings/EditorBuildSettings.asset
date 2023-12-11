@@ -24,9 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Loading Screen.unity
     guid: bdbc2ae5477cf1a4a8e048b5fe23ecf5
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
-    guid: b34344a0986fc0045b574d6636a07e80
-  - enabled: 1
     path: Assets/Scenes/Highscore Screen.unity
     guid: c04ce7429a6381540b5de237d176451a
   - enabled: 1
@@ -42,14 +39,23 @@ EditorBuildSettings:
     path: Assets/Scenes/FriendsScreen.unity
     guid: 50998b5a38ba5c04b971461f9477ee4b
   - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: b34344a0986fc0045b574d6636a07e80
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 2f115e67cd255924c8562d99087c4256
+  - enabled: 1
     path: Assets/Scenes/Level 3.unity
     guid: a9344e8cf0b614c4b9b6378ca0a55705
+  - enabled: 1
+    path: Assets/Scenes/Level 4.unity
+    guid: bd48f6d49e38db44da5c755207d6f81e
   - enabled: 1
     path: Assets/Scenes/Level 5.unity
     guid: 13d72688252bc3148a8c8f394125350a
   - enabled: 1
-    path: Assets/Scenes/Level 2.unity
-    guid: 2f115e67cd255924c8562d99087c4256
+    path: Assets/Scenes/Level 6.unity
+    guid: e83918f18c9e4a04589696f41947a4d8
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 243a2ae6a4b03f14e95450188a2b1c21, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 0089b8363e15f87498cf8ae76aa44614, type: 2}
