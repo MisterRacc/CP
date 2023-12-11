@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using PlayFab;
 using PlayFab.ClientModels;
+using TMPro;
 
 public class LogicScript : MonoBehaviour
 {
@@ -11,11 +12,14 @@ public class LogicScript : MonoBehaviour
     public Text livesText;
     public Button Interact;
     public GameObject gameOverScreen;
+    public GameObject completedLevelScreen;
     private bool bunnyCaught = false;
+    private float timeBunnyCaught = 0f;
     private BunnyController bc;
     private PlayerScript ps;
     public ScoreAdder scoreUpdater;
     public Text scoreText;
+    public TMP_Text timerText;
     public PlayfabManager PlayfabManager;
 
     void Start()
@@ -26,6 +30,31 @@ public class LogicScript : MonoBehaviour
             scoreUpdater.LoadScore();
         }
     }
+
+    void Update()
+    {
+        if (timerText.text == "00:00")
+        {
+            if(!IsBunnyCaught()){
+                gameOver();
+            }
+            else{
+                completedLevel();
+            }
+        }
+
+        if (IsBunnyCaught())
+        {
+            timeBunnyCaught += Time.deltaTime; // Incrementa o tempo desde o último frame
+
+            if (timeBunnyCaught >= 10f)
+            {
+                IncreaseScore();
+                timeBunnyCaught = 0f; // Reinicia o contador para o próximo décimo de segundo
+            }
+        }
+    }
+
     void ResetVariables()
 {
     lives = 5;  
@@ -87,7 +116,18 @@ public class LogicScript : MonoBehaviour
 
     public void gameOver()
     {
+        Time.timeScale = 0f;
         gameOverScreen.SetActive(true);
+        if (PlayFabClientAPI.IsClientLoggedIn())
+        {
+            PlayfabManager.SendLeaderboard(int.Parse(scoreText.text), 1);
+        }
+    }
+
+    public void completedLevel()
+    {
+        Time.timeScale = 0f;
+        completedLevelScreen.SetActive(true);
         if (PlayFabClientAPI.IsClientLoggedIn())
         {
             PlayfabManager.SendLeaderboard(int.Parse(scoreText.text), 1);
