@@ -26,4 +26,8 @@ public class ItemButtonHandler : MonoBehaviour
         itemNameText.text = itemName;
         itemDescriptionText.text = itemDescription;
     }
+
+    public void OnCloseButtonClick(){
+        itemInfoPanel.SetActive(false);
+    }
 }
