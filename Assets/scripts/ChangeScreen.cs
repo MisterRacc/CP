@@ -20,7 +20,13 @@ public class ChangeScreen : MonoBehaviour
             else{
                 messageText.text = "You must be logged in to access the Leaderboard!";
             }
-        }else{
+        }
+        else if(ecra == "Inventory"){
+            string nivel = PlayerPrefs.GetString("CurrentLevel","Default");
+            SceneManager.LoadScene(nivel);
+            Time.timeScale = 1;
+        }
+        else{
             SceneManager.LoadScene(ecra);
             Time.timeScale = 1;
         }
