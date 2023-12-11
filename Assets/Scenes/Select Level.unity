@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 189649417}
   - component: {fileID: 189649416}
   - component: {fileID: 189649418}
+  - component: {fileID: 189649419}
   m_Layer: 5
   m_Name: Level5
   m_TagString: Untagged
@@ -290,6 +291,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 189649419}
+        m_TargetAssemblyTypeName: SaveLevelButton, Assembly-CSharp
+        m_MethodName: SaveLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 189649416}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
@@ -315,6 +328,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelNumber: 5
+--- !u!114 &189649419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189649412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1204ca5924bc70b41b82e7501cc62d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelValue: Level 5
 --- !u!1 &232645520
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,6 +1027,7 @@ GameObject:
   - component: {fileID: 680021537}
   - component: {fileID: 680021536}
   - component: {fileID: 680021540}
+  - component: {fileID: 680021541}
   m_Layer: 5
   m_Name: Level2
   m_TagString: Untagged
@@ -1084,6 +1111,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 680021541}
+        m_TargetAssemblyTypeName: SaveLevelButton, Assembly-CSharp
+        m_MethodName: SaveLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 680021536}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
@@ -1147,6 +1186,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelNumber: 2
+--- !u!114 &680021541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680021534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1204ca5924bc70b41b82e7501cc62d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelValue: Level 2
 --- !u!1 &684382682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,6 +1481,7 @@ GameObject:
   - component: {fileID: 864483030}
   - component: {fileID: 864483029}
   - component: {fileID: 864483033}
+  - component: {fileID: 864483034}
   m_Layer: 5
   m_Name: Level6
   m_TagString: Untagged
@@ -1512,6 +1565,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 864483034}
+        m_TargetAssemblyTypeName: SaveLevelButton, Assembly-CSharp
+        m_MethodName: SaveLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 864483029}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
@@ -1575,6 +1640,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelNumber: 6
+--- !u!114 &864483034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864483027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1204ca5924bc70b41b82e7501cc62d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelValue: Level 6
 --- !u!1 &962781123
 GameObject:
   m_ObjectHideFlags: 0
@@ -2334,6 +2412,7 @@ GameObject:
   - component: {fileID: 1872691647}
   - component: {fileID: 1872691646}
   - component: {fileID: 1872691648}
+  - component: {fileID: 1872691649}
   m_Layer: 5
   m_Name: Level3
   m_TagString: Untagged
@@ -2455,6 +2534,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1872691649}
+        m_TargetAssemblyTypeName: SaveLevelButton, Assembly-CSharp
+        m_MethodName: SaveLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1872691646}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
@@ -2480,6 +2571,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelNumber: 3
+--- !u!114 &1872691649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872691642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1204ca5924bc70b41b82e7501cc62d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelValue: Level 3
 --- !u!1 &1908912706
 GameObject:
   m_ObjectHideFlags: 0
@@ -2720,6 +2824,7 @@ GameObject:
   - component: {fileID: 2031481770}
   - component: {fileID: 2031481769}
   - component: {fileID: 2031481771}
+  - component: {fileID: 2031481772}
   m_Layer: 5
   m_Name: Level1
   m_TagString: Untagged
@@ -2841,6 +2946,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2031481772}
+        m_TargetAssemblyTypeName: SaveLevelButton, Assembly-CSharp
+        m_MethodName: SaveLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2031481769}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
@@ -2866,6 +2983,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelNumber: 1
+--- !u!114 &2031481772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031481765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1204ca5924bc70b41b82e7501cc62d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelValue: Level 1
 --- !u!1 &2143506092
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,6 +3010,7 @@ GameObject:
   - component: {fileID: 2143506095}
   - component: {fileID: 2143506094}
   - component: {fileID: 2143506098}
+  - component: {fileID: 2143506099}
   m_Layer: 5
   m_Name: Level4
   m_TagString: Untagged
@@ -2963,6 +3094,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2143506099}
+        m_TargetAssemblyTypeName: SaveLevelButton, Assembly-CSharp
+        m_MethodName: SaveLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2143506094}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
@@ -3026,6 +3169,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelNumber: 4
+--- !u!114 &2143506099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143506092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1204ca5924bc70b41b82e7501cc62d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelValue: Level 4
 --- !u!1 &2144562339
 GameObject:
   m_ObjectHideFlags: 0
