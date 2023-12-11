@@ -3,7 +3,7 @@ using TMPro;
 
 public class CountdownTimer : MonoBehaviour
 {
-    public float startingTime = 120; // Tempo inicial em segundos
+    public float startingTime = 100; // Tempo inicial em segundos
     private float timeRemaining;
     public TMP_Text timeText;
     public bool timerIsRunning = true;
@@ -11,7 +11,6 @@ public class CountdownTimer : MonoBehaviour
     void Start()
     {
         timeRemaining = startingTime;
-        DisplayTime(timeRemaining);
     }
 
     void Update()
