@@ -14,6 +14,7 @@ public class PlantsSpawnerScript : MonoBehaviour
     private float maxY = -100;
     private float minDistance = 100;
     private List<Vector3> spawnedPositions = new List<Vector3>();
+    private int plantsCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +25,16 @@ public class PlantsSpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timer < spawnRate){
-            timer += Time.deltaTime;
+        if(plantsCount < 5){
+            if(timer < spawnRate){
+                timer += Time.deltaTime;
+            }
+            else{
+                spawnPlants();
+            }
         }
-        else{
-            spawnPlants();
-        }
+
+        Debug.Log(plantsCount);
     }
 
     void spawnPlants(){
@@ -47,6 +52,7 @@ public class PlantsSpawnerScript : MonoBehaviour
 
         spawnedPositions.Add(spawnPosition);
 
+        plantsCount++;
         spawnRate = Random.Range(5, 11);
         timer = 0;
     }
@@ -66,5 +72,6 @@ public class PlantsSpawnerScript : MonoBehaviour
 
         spawnedPositions.Remove(destroyedPosition);
         Destroy(plant);
+        plantsCount--;
     }
 }
