@@ -291,7 +291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: 474}
+  m_AnchoredPosition: {x: 36, y: 474}
   m_SizeDelta: {x: 0.4891, y: 49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &65371454
@@ -506,7 +506,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -312, y: 465.2}
+  m_AnchoredPosition: {x: -265, y: 465.2}
   m_SizeDelta: {x: 101.4449, y: 101.4449}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &260599413
@@ -770,7 +770,7 @@ GameObject:
   - component: {fileID: 760513590}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -866,6 +866,7 @@ RectTransform:
   - {fileID: 1899989714}
   - {fileID: 109068253}
   - {fileID: 1330047907}
+  - {fileID: 1030140973}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -924,6 +925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69354644351551408dafe7fb5212375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageText: {fileID: 0}
 --- !u!114 &777496398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1069,6 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69354644351551408dafe7fb5212375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageText: {fileID: 0}
 --- !u!114 &831563827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1615,6 +1618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69354644351551408dafe7fb5212375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageText: {fileID: 0}
 --- !u!114 &1014289876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1709,6 +1713,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014289873}
   m_CullTransparentMesh: 1
+--- !u!1 &1030140972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1030140973}
+  - component: {fileID: 1030140974}
+  m_Layer: 0
+  m_Name: Plants Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1030140973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030140972}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 42, y: -102, z: -9.180145}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 760513593}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1030140974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030140972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85edd943d35f8d46b5d542839a3faf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlantPrefab: {fileID: 7777102804275594264, guid: d45f33e039dfe06428e59cf322c77fce, type: 3}
 --- !u!1 &1074465837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,6 +1809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69354644351551408dafe7fb5212375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageText: {fileID: 0}
 --- !u!114 &1074465840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2462,8 +2512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb40445891b57049ae0f5ed3b7ba62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 0
-  timerIsRunning: 1
+  startingTime: 300
   timeText: {fileID: 1491453724}
 --- !u!1 &1667800994
 GameObject:
@@ -2816,6 +2865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69354644351551408dafe7fb5212375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageText: {fileID: 0}
 --- !u!114 &1899989716
 MonoBehaviour:
   m_ObjectHideFlags: 0

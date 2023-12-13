@@ -3,10 +3,11 @@ using TMPro;
 
 public class CountdownTimer : MonoBehaviour
 {
-    public float startingTime = 100; // Tempo inicial em segundos
-    private float timeRemaining;
+    public float startingTime;
     public TMP_Text timeText;
-    public bool timerIsRunning = true;
+
+    private bool timerIsRunning = true;
+    private float timeRemaining;
 
     void Start()
     {
@@ -24,7 +25,6 @@ public class CountdownTimer : MonoBehaviour
             }
             else
             {
-                Debug.Log("Tempo esgotado!");
                 timeRemaining = 0;
                 timerIsRunning = false;
             }
