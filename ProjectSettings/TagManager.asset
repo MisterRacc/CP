@@ -19,6 +19,7 @@ TagManager:
   - Plants
   - Spawner
   - Restricted
+  - WaterZone
   layers:
   - Default
   - TransparentFX

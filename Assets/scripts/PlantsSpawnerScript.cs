@@ -10,7 +10,7 @@ public class PlantsSpawnerScript : MonoBehaviour
     private float timer;
     private float minX = -200;
     private float maxX = 850;
-    private float minY = -300;
+    private float minY = -200;
     private float maxY = -100;
     private float minDistance = 100;
     private List<Vector3> spawnedPositions = new List<Vector3>();

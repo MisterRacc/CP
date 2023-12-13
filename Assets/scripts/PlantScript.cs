@@ -10,10 +10,12 @@ public class PlantScript : MonoBehaviour
 
     private PlantsSpawnerScript spawner;
     private int time;
+    private PlayerLvl5Script ps;
 
     // Start is called before the first frame update
     void Start()
     {
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLvl5Script>();
         spawner = FindObjectOfType<PlantsSpawnerScript>();
         time = initialTime;
         UpdateTimertext();
@@ -45,5 +47,14 @@ public class PlantScript : MonoBehaviour
     {
         time += amount;
         UpdateTimertext();
+    }
+
+    void OnTriggerStay2D(Collider2D collision){
+        if(collision.CompareTag("Player")){
+            if(ps.GetWaterDropped()){
+                IncreaseTimer(10);
+                ps.SetWaterDropped(false);
+            }
+        }
     }
 }
