@@ -39,6 +39,8 @@ public class ItemButtonHandler : MonoBehaviour
         InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
         inventoryManager.ConsumeItem(itemId);
 
+        OnCloseButtonClick();
+
         InventoryHandler InventoryHandler = FindObjectOfType<InventoryHandler>();
         InventoryHandler.CloseInventory();
     }
