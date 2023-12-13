@@ -38,7 +38,7 @@ public class PlantScript : MonoBehaviour
 
     void UpdateTimertext()
     {
-        timertext.text = time.ToString();
+        timertext.text = $"{time.ToString()}";
     }
 
     public void IncreaseTimer(int amount)

@@ -43,7 +43,7 @@ public class PlantsSpawnerScript : MonoBehaviour
         } while(IsTooCloseToOtherPlants(spawnPosition));
 
         GameObject plant = Instantiate(PlantPrefab, new Vector3(randomX, randomY, 0), Quaternion.identity);
-        plant.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        plant.transform.SetParent(GameObject.FindGameObjectWithTag("Spawner").transform, false);
 
         spawnedPositions.Add(spawnPosition);
 

@@ -17,6 +17,8 @@ TagManager:
   - Leaf
   - Babys
   - Plants
+  - Spawner
+  - Restricted
   layers:
   - Default
   - TransparentFX
