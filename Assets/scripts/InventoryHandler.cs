@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryHandler : MonoBehaviour
 {
 
     public GameObject Inventory;
     public GameObject InventoryManager;
+    public List<Button> itemButtons;
 
     public void OpenInventory(){
         Inventory.SetActive(true);
@@ -16,7 +18,16 @@ public class InventoryHandler : MonoBehaviour
 
     public void CloseInventory(){
         Inventory.SetActive(false);
+        resetImages();
         Time.timeScale = 1f;
+    }
+
+    public void resetImages(){
+        Sprite sprite = Resources.Load<Sprite>("BoxItemInventory");
+        foreach (Button button in itemButtons)
+        {
+            button.GetComponent<Image>().sprite = sprite;
+        }
     }
 
     // Start is called before the first frame update

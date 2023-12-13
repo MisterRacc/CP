@@ -3474,6 +3474,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Inventory: {fileID: 1184732044}
   InventoryManager: {fileID: 1383591596}
+  itemButtons:
+  - {fileID: 1347590760}
+  - {fileID: 2070186820}
+  - {fileID: 242190355}
+  - {fileID: 1360800583}
+  - {fileID: 1843083356}
+  - {fileID: 1445093181}
+  - {fileID: 1375976886}
+  - {fileID: 224526816}
+  - {fileID: 2143238453}
+  - {fileID: 1338600839}
 --- !u!4 &1566606738
 Transform:
   m_ObjectHideFlags: 0
