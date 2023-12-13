@@ -131,6 +131,7 @@ public class LogicScript : MonoBehaviour
         if (PlayFabClientAPI.IsClientLoggedIn())
         {
             PlayfabManager.SendLeaderboard(int.Parse(scoreText.text), 1);
+            PlayfabManager.AnalyzeResult(int.Parse(scoreText.text));
         }
     }
 

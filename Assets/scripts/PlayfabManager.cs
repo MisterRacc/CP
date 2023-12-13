@@ -257,8 +257,44 @@ public class PlayfabManager : MonoBehaviour
         }
     }
 
-    
+    public void AnalyzeResult(int score) {
+        string itemToGrant = DetermineItemBasedOnScore(score);
 
+        if (!string.IsNullOrEmpty(itemToGrant)) {
+            GrantItemToPlayer(itemToGrant);
+        } else {
+            Debug.LogError("No item to grant based on the score.");
+        }
+    }
+
+    private void GrantItemToPlayer(string itemID) {
+        /*var request = new GrantItemsToUserRequest{
+            FunctionName = "GrantItemToPlayer",
+            FunctionParameter = new {
+                ItemID = itemID
+            }
+        };
+
+        PlayFabClientAPI.GrantItemsToUserRequest(request, OnGrantItemSuccess, OnError);*/
+    }
+
+    /*private void OnGrantItemSuccess(GrantItemsToUserResult result) {
+        Debug.Log("Item granted successfully.");
+    }*/
+
+    private string DetermineItemBasedOnScore(int score) {
+        if (score >= 1000) {
+            return "invisible_potion"; 
+        } else if (score >= 750) {
+            return "fire_resistance_potion"; 
+        } else if (score >= 500) {
+            return "health_potion"; 
+        } else if (score >= 250) {
+            return "energy_gel"; 
+        } else {
+            return "";
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
