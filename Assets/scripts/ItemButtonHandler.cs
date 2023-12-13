@@ -36,7 +36,10 @@ public class ItemButtonHandler : MonoBehaviour
     }
 
     public void UseItem(string itemId){
-        FindObjectOfType<InventoryManager>().ConsumeItem(itemId);
-        itemInfoPanel.SetActive(false);
+        InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
+        inventoryManager.ConsumeItem(itemId);
+
+        InventoryHandler InventoryHandler = FindObjectOfType<InventoryHandler>();
+        InventoryHandler.CloseInventory();
     }
 }
