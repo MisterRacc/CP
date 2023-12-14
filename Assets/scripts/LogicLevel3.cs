@@ -94,7 +94,7 @@ public class LogicLevel3 : MonoBehaviour
         if (scoreUpdater != null)
         {
             // Increase the score using ScoreUpdater script
-            scoreUpdater.IncreaseScore(10); // You can adjust the score value as needed
+            scoreUpdater.IncreaseScore(50); // You can adjust the score value as needed
         }
     }
 

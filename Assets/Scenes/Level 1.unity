@@ -2979,7 +2979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 625670420}
   speed: 200
-  minX: 300
+  minX: 150
   maxX: 2000
   minY: 20
   maxY: 350
