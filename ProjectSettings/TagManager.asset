@@ -27,7 +27,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Menus
   - 
   - 
   - 
@@ -56,4 +56,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Menus
+    uniqueID: 220571457
     locked: 0
