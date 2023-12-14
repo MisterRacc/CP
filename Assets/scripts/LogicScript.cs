@@ -78,18 +78,6 @@ public class LogicScript : MonoBehaviour
         Debug.LogError("Unable to find PlayerScript. Make sure the GameObject with the 'Player' tag is present in the scene.");
     }
 
-    // Find and assign other components dynamically
-    scoreText = GameObject.Find("Current Score").GetComponent<Text>();
-    if (scoreText == null)
-    {
-        Debug.LogError("Unable to find scoreText. Make sure the GameObject is present in the scene and has a Text component.");
-    }
-
-    scoreUpdater = GetComponent<ScoreAdder>();
-    if (scoreUpdater == null)
-    {
-        Debug.LogError("Unable to find ScoreAdder. Make sure the ScoreAdder script is attached to the same GameObject as LogicScript.");
-    }
 }
 
     public void takeDamage()
@@ -130,7 +118,26 @@ public class LogicScript : MonoBehaviour
         completedLevelScreen.SetActive(true);
         if (PlayFabClientAPI.IsClientLoggedIn())
         {
-            PlayfabManager.SendLeaderboard(int.Parse(scoreText.text), 1);
+            Time.timeScale = 0f;
+            completedLevelScreen.SetActive(true);
+            if (PlayFabClientAPI.IsClientLoggedIn())
+            {
+                PlayfabManager.SendLeaderboard(int.Parse(scoreText.text), 1);
+                PlayfabManager.AnalyzeResult(int.Parse(scoreText.text));
+                string result = PlayfabManager.DetermineItemBasedOnScore(int.Parse(scoreText.text));
+                if (result == "")
+                {
+                    resultText.text = "Congratulations! You have completed the level! Unfortunaly your performance wasn't the required to get a reward!";
+                }
+                else
+                {
+                    resultText.text = "Congratulations! You have completed the level! You won: " + result + "!";
+                }
+            }
+            PlayerPrefs.SetInt("Level" + 1 + "Completed",2);
+            PlayerPrefs.SetInt("Level" + 2 + "Completed",1);
+
+            levelCompleted = true;
         }
     }
 
