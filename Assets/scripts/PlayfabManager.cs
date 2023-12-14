@@ -307,7 +307,7 @@ public class PlayfabManager : MonoBehaviour
         }, ErrorMessage);
     }
 
-    private string DetermineItemBasedOnScore(int score) {
+    public string DetermineItemBasedOnScore(int score) {
         if (score >= 1000) {
             return "invisible_potion"; 
         } else if (score >= 750) {
