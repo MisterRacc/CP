@@ -875,18 +875,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1362406800}
-        m_TargetAssemblyTypeName: ConfigurationScript, Assembly-CSharp
-        m_MethodName: SaveConfigurationSettings
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1362406796}
         m_TargetAssemblyTypeName: ChangeScreen, Assembly-CSharp
         m_MethodName: MoveToScene
@@ -944,7 +932,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362406794}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 174fe8747dd9c5b4aa6fd852a225db02, type: 3}
   m_Name: 
@@ -1107,6 +1095,10 @@ MonoBehaviour:
   defaultMusic: {fileID: 8300000, guid: acbab2c053e878147a2b360182399abf, type: 3}
   level1Music: {fileID: 8300000, guid: 21eb6a38fe4d5624c94aaf86f402f4ea, type: 3}
   level2Music: {fileID: 8300000, guid: 21eb6a38fe4d5624c94aaf86f402f4ea, type: 3}
+  level3Music: {fileID: 0}
+  level4Music: {fileID: 0}
+  level5Music: {fileID: 0}
+  level6Music: {fileID: 0}
 --- !u!1 &1406506293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,6 +1393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1468143537}
   - component: {fileID: 1468143538}
+  - component: {fileID: 1468143539}
   m_Layer: 5
   m_Name: musicToggle
   m_TagString: Untagged
@@ -1474,8 +1467,33 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1468143539}
+        m_TargetAssemblyTypeName: ConfigurationScript, Assembly-CSharp
+        m_MethodName: SaveConfigurationSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
+--- !u!114 &1468143539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468143536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174fe8747dd9c5b4aa6fd852a225db02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicToggle: {fileID: 1468143538}
 --- !u!1 &1508205270
 GameObject:
   m_ObjectHideFlags: 0

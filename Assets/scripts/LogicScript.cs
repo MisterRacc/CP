@@ -15,10 +15,12 @@ public class LogicScript : MonoBehaviour
     public GameObject completedLevelScreen;
     private bool bunnyCaught = false;
     private float timeBunnyCaught = 0f;
+    private bool levelCompleted = false;
     private BunnyController bc;
     private PlayerScript ps;
     public ScoreAdder scoreUpdater;
     public Text scoreText;
+    public Text resultText;
     public TMP_Text timerText;
     public PlayfabManager PlayfabManager;
 
@@ -114,9 +116,7 @@ public class LogicScript : MonoBehaviour
 
     public void completedLevel()
     {
-        Time.timeScale = 0f;
-        completedLevelScreen.SetActive(true);
-        if (PlayFabClientAPI.IsClientLoggedIn())
+        if (!levelCompleted)
         {
             Time.timeScale = 0f;
             completedLevelScreen.SetActive(true);

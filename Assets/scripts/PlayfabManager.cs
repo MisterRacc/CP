@@ -257,8 +257,73 @@ public class PlayfabManager : MonoBehaviour
         }
     }
 
-    
+    public void AnalyzeResult(int score) {
+        string itemToGrant = DetermineItemBasedOnScore(score);    
+        if (!string.IsNullOrEmpty(itemToGrant)) {
+            Debug.Log("Item to grant: " + itemToGrant);
+            GrantItemToPlayer(itemToGrant);
+        } else {
+            Debug.Log("Sem pontuação para ganhar item.");
+        }
+    }
 
+    private void GrantItemToPlayer(string itemID) {
+        Debug.Log("Dentro da funcao de enviar: " + itemID);
+        PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), result => {
+            var existingItem = result.Inventory.Find(item => item.ItemId == itemID);
+            Debug.Log("Item existente? " + existingItem);
+            if (existingItem != null) {
+                Debug.Log("Item já existe no inventário.");
+                ModifyItemUses(existingItem.ItemInstanceId);
+            } else {
+                Debug.Log("Item não existe no inventário.");
+                AddNewItem(itemID);
+            }
+        }, ErrorMessage);
+    }
+
+    private void ModifyItemUses(string itemInstanceId) {
+        Debug.Log("Dentro da que modifica o item (uses left): " + itemInstanceId);
+        var request = new ExecuteCloudScriptRequest {
+            FunctionName = "ModifyItemUses",
+            FunctionParameter = new { ItemInstanceId = itemInstanceId }
+        };
+
+        PlayFabClientAPI.ExecuteCloudScript(request, result => {
+            Debug.Log("Usos do item modificados com sucesso.");
+        }, ErrorMessage);
+    }
+
+    private void AddNewItem(string itemID) {
+        Debug.Log("Dentro da que cria o item: " + itemID);
+        // Adiciona o novo item ao inventário
+        var request = new ExecuteCloudScriptRequest {
+            FunctionName = "GrantItemToPlayer",
+            FunctionParameter = new { ItemID = itemID }
+        };
+
+        PlayFabClientAPI.ExecuteCloudScript(request, result => {
+            Debug.Log("Item adicionado ao inventário.");
+        }, ErrorMessage);
+    }
+
+    public string DetermineItemBasedOnScore(int score) {
+        if (score >= 1000) {
+            return "invisible_potion"; 
+        } else if (score >= 750) {
+            return "fire_resistance_potion"; 
+        } else if (score >= 500) {
+            return "health_potion"; 
+        } else if (score >= 250) {
+            return "energy_gel"; 
+        } else {
+            return "";
+        }
+    }
+
+    private void ErrorMessage(PlayFabError error) {
+        Debug.LogError("Erro ocorrido!!! : " + error.GenerateErrorReport());
+    }
 
     // Start is called before the first frame update
     void Start()
