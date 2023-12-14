@@ -27,6 +27,7 @@ public class BunnyController2 : MonoBehaviour
         if(collision.CompareTag("Fire") || collision.CompareTag("Enemy")){
             Debug.Log("Player hit");
             logic.takeDamage();
+            logic.resetTimeWithoutDamage();
             setIfHit(true);
         }
     }

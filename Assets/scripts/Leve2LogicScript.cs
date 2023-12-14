@@ -34,7 +34,7 @@ public class Level2LogicScript : MonoBehaviour
     {
         if (timerText.text == "00:00")
         {
-            
+            completedLevel();
         }
         timeWithoutDamage += Time.deltaTime; // Incrementa o tempo desde o último frame
         
@@ -109,7 +109,7 @@ public class Level2LogicScript : MonoBehaviour
         gameOverScreen.SetActive(true);
         if (PlayFabClientAPI.IsClientLoggedIn())
         {
-            PlayfabManager.SendLeaderboard(int.Parse(scoreText.text), 1);
+            PlayfabManager.SendLeaderboard(int.Parse(scoreText.text), 2);
         }
     }
 
@@ -121,7 +121,7 @@ public class Level2LogicScript : MonoBehaviour
             completedLevelScreen.SetActive(true);
             if (PlayFabClientAPI.IsClientLoggedIn())
             {
-                PlayfabManager.SendLeaderboard(int.Parse(scoreText.text), 1);
+                PlayfabManager.SendLeaderboard(int.Parse(scoreText.text), 2);
                 PlayfabManager.AnalyzeResult(int.Parse(scoreText.text));
                 string result = PlayfabManager.DetermineItemBasedOnScore(int.Parse(scoreText.text));
                 if (result == "")
@@ -145,5 +145,10 @@ public class Level2LogicScript : MonoBehaviour
             // Increase the score using ScoreUpdater script
             scoreUpdater.IncreaseScore(100); // You can adjust the score value as needed
         }
+    }
+
+    public void resetTimeWithoutDamage()
+    {
+        timeWithoutDamage = 0f;
     }
 }
