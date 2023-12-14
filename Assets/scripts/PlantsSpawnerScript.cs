@@ -10,9 +10,9 @@ public class PlantsSpawnerScript : MonoBehaviour
     private float timer;
     private float minX = -200;
     private float maxX = 850;
-    private float minY = -200;
+    private float minY = -280;
     private float maxY = -100;
-    private float minDistance = 100;
+    private float minDistance = 150;
     private List<Vector3> spawnedPositions = new List<Vector3>();
     private int plantsCount = 0;
 
@@ -33,8 +33,6 @@ public class PlantsSpawnerScript : MonoBehaviour
                 spawnPlants();
             }
         }
-
-        Debug.Log(plantsCount);
     }
 
     void spawnPlants(){
@@ -45,7 +43,7 @@ public class PlantsSpawnerScript : MonoBehaviour
             randomX = Random.Range(minX, maxX);
             randomY = Random.Range(minY, maxY);
             spawnPosition = new Vector3(randomX, randomY, 0);
-        } while(IsTooCloseToOtherPlants(spawnPosition));
+        } while(IsTooCloseToOtherPlants(spawnPosition) || IsInButtonsArea(spawnPosition));
 
         GameObject plant = Instantiate(PlantPrefab, new Vector3(randomX, randomY, 0), Quaternion.identity);
         plant.transform.SetParent(GameObject.FindGameObjectWithTag("Spawner").transform, false);
@@ -57,9 +55,14 @@ public class PlantsSpawnerScript : MonoBehaviour
         timer = 0;
     }
 
-    bool IsTooCloseToOtherPlants(Vector3 newPosition){
+    bool IsInButtonsArea(Vector3 position){
+        if(position.y <= -200 && position.x >= 200) return true;
+        return false;
+    }
+
+    bool IsTooCloseToOtherPlants(Vector3 position){
         foreach (Vector3 existingPosition in spawnedPositions){
-            float distance = Vector3.Distance(newPosition, existingPosition);
+            float distance = Vector3.Distance(position, existingPosition);
             if (distance < minDistance){
                 return true;
             }
