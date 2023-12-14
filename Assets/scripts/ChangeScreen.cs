@@ -19,16 +19,29 @@ public class ChangeScreen : MonoBehaviour
             }
             else{
                 messageText.text = "You must be logged in to access the Leaderboard!";
+                StartCoroutine(HideMessageTextAfterDelay(3f));
             }
         }
-        else if(ecra == "Inventory"){
-            string nivel = PlayerPrefs.GetString("CurrentLevel","Default");
-            SceneManager.LoadScene(nivel);
-            Time.timeScale = 1;
+        else if(ecra == "InventoryScreen"){
+            if (PlayFabClientAPI.IsClientLoggedIn())
+            {
+                SceneManager.LoadScene(ecra);
+                Time.timeScale = 1;
+            } else {
+                messageText.text = "You must be logged in to use the Inventory!";
+                StartCoroutine(HideMessageTextAfterDelay(3f));
+            }
         }
         else{
             SceneManager.LoadScene(ecra);
             Time.timeScale = 1;
         }
     }
+
+    private IEnumerator HideMessageTextAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        messageText.text = string.Empty; // Clear the messageText
+    }
+
 }
