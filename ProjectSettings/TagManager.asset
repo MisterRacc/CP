@@ -16,6 +16,10 @@ TagManager:
   - Trash
   - Leaf
   - Babys
+  - Plants
+  - Spawner
+  - Restricted
+  - WaterZone
   layers:
   - Default
   - TransparentFX

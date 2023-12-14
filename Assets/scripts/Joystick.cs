@@ -5,7 +5,7 @@ using UnityEngine;
 public class Joystick : MonoBehaviour
 {
     public Transform player;
-    public float speed = 200;
+    public float speed;
     public float minX;
     public float maxX;
     public float minY;
