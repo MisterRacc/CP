@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using PlayFab;
+using PlayFab.ClientModels;
 
 public class InventoryHandler : MonoBehaviour
 {
@@ -9,11 +11,24 @@ public class InventoryHandler : MonoBehaviour
     public GameObject Inventory;
     public GameObject InventoryManager;
     public List<Button> itemButtons;
+    public Text messageText;
 
     public void OpenInventory(){
-        Inventory.SetActive(true);
-        Time.timeScale = 0f;
-        InventoryManager.GetComponent<InventoryManager>().GetPlayerInventory();
+        if (PlayFabClientAPI.IsClientLoggedIn())
+        {
+            Inventory.SetActive(true);
+            Time.timeScale = 0f;
+            InventoryManager.GetComponent<InventoryManager>().GetPlayerInventory();
+        } else {
+            messageText.text = "You must be logged in to use the Inventory!";
+            StartCoroutine(HideMessageTextAfterDelay(3f));
+        }
+    }
+
+    private IEnumerator HideMessageTextAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        messageText.text = string.Empty; // Clear the messageText
     }
 
     public void CloseInventory(){
