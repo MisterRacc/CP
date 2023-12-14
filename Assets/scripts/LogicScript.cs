@@ -15,10 +15,12 @@ public class LogicScript : MonoBehaviour
     public GameObject completedLevelScreen;
     private bool bunnyCaught = false;
     private float timeBunnyCaught = 0f;
+    private bool levelCompleted = false;
     private BunnyController bc;
     private PlayerScript ps;
     public ScoreAdder scoreUpdater;
     public Text scoreText;
+    public Text resultText;
     public TMP_Text timerText;
     public PlayfabManager PlayfabManager;
 
@@ -90,6 +92,12 @@ public class LogicScript : MonoBehaviour
     {
         Debug.LogError("Unable to find ScoreAdder. Make sure the ScoreAdder script is attached to the same GameObject as LogicScript.");
     }
+
+    resultText = GameObject.Find("ResultMessage").GetComponent<Text>();
+    if (resultText == null)
+    {
+        Debug.LogError("Unable to find resultText. Make sure the GameObject is present in the scene and has a Text component.");
+    }
 }
 
     public void takeDamage()
@@ -126,11 +134,26 @@ public class LogicScript : MonoBehaviour
 
     public void completedLevel()
     {
-        Time.timeScale = 0f;
-        completedLevelScreen.SetActive(true);
-        if (PlayFabClientAPI.IsClientLoggedIn())
+        if (!levelCompleted)
         {
-            PlayfabManager.SendLeaderboard(int.Parse(scoreText.text), 1);
+            Time.timeScale = 0f;
+            completedLevelScreen.SetActive(true);
+            if (PlayFabClientAPI.IsClientLoggedIn())
+            {
+                PlayfabManager.SendLeaderboard(int.Parse(scoreText.text), 1);
+                PlayfabManager.AnalyzeResult(int.Parse(scoreText.text));
+                string result = PlayfabManager.DetermineItemBasedOnScore(int.Parse(scoreText.text));
+                if (result == "")
+                {
+                    resultText.text = "Congratulations! You have completed the level! Unfortunaly your performance wasn't the required to get a reward!";
+                }
+                else
+                {
+                    resultText.text = "Congratulations! You have completed the level! You won: " + result + "!";
+                }
+            }
+
+            levelCompleted = true;
         }
     }
 
