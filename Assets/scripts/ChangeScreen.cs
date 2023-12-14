@@ -19,6 +19,7 @@ public class ChangeScreen : MonoBehaviour
             }
             else{
                 messageText.text = "You must be logged in to access the Leaderboard!";
+                StartCoroutine(HideMessageTextAfterDelay(3f));
             }
         }
         else if(ecra == "InventoryScreen"){
