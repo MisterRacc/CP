@@ -5,25 +5,38 @@ using UnityEngine;
 public class BunnyController2 : MonoBehaviour
 {
     public float speed; // Velocidade de movimento do coelho
-    public float changeDirectionInterval; // Intervalo para mudar a direção
-    private float timeSinceLastDirectionChange;
-    private bool isMovingUp = true;
-    private bool isMovingLeft = true;
     private Transform target;
-    private LogicScript logic;
+    private Level2LogicScript logic;
+    private bool hit = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        timeSinceLastDirectionChange = 0;
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<Level2LogicScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(getIfHit()){
+            setIfHit(false);
+        }
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision){ 
+        if(collision.CompareTag("Fire") || collision.CompareTag("Enemy")){
+            Debug.Log("Player hit");
+            logic.takeDamage();
+            setIfHit(true);
+        }
+    }
+
+    public void setIfHit(bool boolean){
+        hit = boolean;
+    }
+
+    public bool getIfHit(){
+        return hit;
     }
 
 }

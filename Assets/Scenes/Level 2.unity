@@ -2732,7 +2732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1862034501}
   speed: 200
-  minX: 1800
+  minX: 200
   maxX: 2000
   minY: 20
   maxY: 550
@@ -5217,7 +5217,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 8
           m_FloatArgument: 0
-          m_StringArgument: Level 1
+          m_StringArgument: Level 2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1172017611
@@ -7968,11 +7968,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1862034500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a726784592550d4ca8f953dc704a46d, type: 3}
+  m_Script: {fileID: 11500000, guid: 683670ef07539284394f2d4972678a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 150
-  changeDirectionInterval: 0.5
 --- !u!1 &1920130768
 GameObject:
   m_ObjectHideFlags: 0
