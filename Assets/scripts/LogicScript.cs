@@ -81,27 +81,26 @@ public class LogicScript : MonoBehaviour
     }
 }
 
-    public void takeDamage()
-{
-    if(lives>0){
-        lives -= 1;
-    }
-
-    if (livesText != null)
+    public void takeDamage(int amount)
     {
-        livesText.text = lives.ToString();
+        if(lives > 0){
+            lives += amount;
+        }
+
+        if (livesText != null)
+        {
+            livesText.text = lives.ToString();
+        }
+
+        if (lives <= 0)
+        {
+            Time.timeScale = 0;
+            Interact.interactable = false;
+            gameOver();
+        }
+
+        Debug.Log("lives: " + lives);
     }
-
-    if (lives <= 0)
-    {
-        Time.timeScale = 0;
-        Interact.interactable = false;
-        gameOver();
-    }
-
-    Debug.Log("lives: " + lives);
-}
-
 
     public void gameOver()
     {
