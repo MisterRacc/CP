@@ -9,9 +9,7 @@ using System.Linq;
 
 public class InventoryManager : MonoBehaviour
 {
-
     private Dictionary<string, string> itemNameToInstanceIdMapping = new Dictionary<string, string>();
-
     private Dictionary<string, string> itemImageMapping = new Dictionary<string, string>
     {
         {"Fire Resistance Potion", "Fire resistance"},
@@ -21,7 +19,6 @@ public class InventoryManager : MonoBehaviour
     };
 
     public List<Button> itemButtons;
-
     public GameObject itemInfoPanel;
     public TextMeshProUGUI itemNameText;
     public TextMeshProUGUI itemDescriptionText;
@@ -141,7 +138,6 @@ public class InventoryManager : MonoBehaviour
     {
         Debug.LogError("Falha ao consumir item: " + error.ErrorMessage);
     }
-
 
     // Start is called before the first frame update
     void Start()
