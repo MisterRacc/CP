@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using PlayFab;
+using PlayFab.ClientModels;
+using TMPro;
 public class LogicLevel6 : MonoBehaviour
 {
     public Text timertext;
@@ -11,10 +14,20 @@ public class LogicLevel6 : MonoBehaviour
 
     private int time;
     private int amoutOfLeaves;
+    public int lives;
+    public Text livesText;
+    public Text scoreText;
+    public ScoreAdder scoreUpdater; // Reference to ScoreUpdater script
+    public TMP_Text timer_Text;
+    public GameObject completedLevelScreen;
+    private bool levelCompleted = false;
+    public PlayfabManager PlayfabManager;
+    public Text resultText;
 
     // Start is called before the first frame update
     void Start()
     {
+        UpdateLivesUI();
         time = initialTime;
         amoutOfLeaves = 0;
         UpdateTimertext();
@@ -24,7 +37,14 @@ public class LogicLevel6 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (timer_Text.text == "00:00")
+        {
+                completedLevel();
+        }
+    }
+     void UpdateLivesUI()
+    {
+        livesText.text = lives.ToString();
     }
 
     void UpdateTimer()
@@ -37,9 +57,35 @@ public class LogicLevel6 : MonoBehaviour
         }
     }
 
+    public void completedLevel()
+    {
+        if (!levelCompleted)
+        {
+            Time.timeScale = 0f;
+            completedLevelScreen.SetActive(true);
+            if (PlayFabClientAPI.IsClientLoggedIn())
+            {
+                PlayfabManager.SendLeaderboard(int.Parse(scoreText.text), 6);
+                PlayfabManager.AnalyzeResult(int.Parse(scoreText.text));
+                string result = PlayfabManager.DetermineItemBasedOnScore(int.Parse(scoreText.text));
+                if (result == "")
+                {
+                    resultText.text = "Congratulations! You have completed the level! Unfortunaly your performance wasn't the required to get a reward!";
+                }
+                else
+                {
+                    resultText.text = "Congratulations! You have completed the level! You won: " + result + "!";
+                }
+            }
+            PlayerPrefs.SetInt("Level" + 6 + "Completed",2);
+
+            levelCompleted = true;
+        }
+    }
+
     void UpdateTimertext()
     {
-        timertext.text = time.ToString();
+        livesText.text = lives.ToString();
     }
 
     public void IncreaseTimer(int amount)
