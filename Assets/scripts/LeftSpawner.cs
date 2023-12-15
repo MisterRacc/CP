@@ -30,7 +30,7 @@ public class LeftSpawner : MonoBehaviour
 
         MovementsUnderwater mu = entity.GetComponent<MovementsUnderwater>();
         mu.DefineSpawn(true);
-        entity.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        entity.transform.SetParent(GameObject.FindGameObjectWithTag("Spawner").transform, false);
         entity.transform.position = new Vector3(spawnX, spawnY, 0);
     }
 }
