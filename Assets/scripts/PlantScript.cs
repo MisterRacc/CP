@@ -9,6 +9,7 @@ public class PlantScript : MonoBehaviour
     public int initialTime;
 
     private PlantsSpawnerScript spawner;
+    private LogicLevel5 logic;
     private int time;
     private PlayerLvl5Script ps;
 
@@ -16,6 +17,7 @@ public class PlantScript : MonoBehaviour
     void Start()
     {
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLvl5Script>();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicLevel5>();
         spawner = FindObjectOfType<PlantsSpawnerScript>();
         time = initialTime;
         UpdateTimertext();
@@ -35,6 +37,7 @@ public class PlantScript : MonoBehaviour
 
         if(time == 0){
             spawner.DestroyPlant(gameObject);
+            logic.TakeDamage();
         }
     }
 
