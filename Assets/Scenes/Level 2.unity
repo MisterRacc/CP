@@ -2810,7 +2810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1862034501}
-  speed: 200
+  normalSpeed: 200
   minX: 200
   maxX: 2000
   minY: 20
