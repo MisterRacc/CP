@@ -5166,7 +5166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1407563703}
-  speed: 200
+  normalSpeed: 100
   minX: 100
   maxX: 1800
   minY: 100
