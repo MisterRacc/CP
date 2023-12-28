@@ -75,7 +75,6 @@ public class ItemButtonHandler : MonoBehaviour
                 break;
 
             case "Health Potion":
-                Debug.Log("AAAAAAAAAAAAAAAAAAAAA");
                 if(PlayerPrefs.GetString("CurrentLevel","Default")=="Level 1") logic1.increaseLives(1);
                 // fazer else ifs pos outros niveis
                 break;
