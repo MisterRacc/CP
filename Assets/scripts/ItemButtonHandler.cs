@@ -42,6 +42,7 @@ public class ItemButtonHandler : MonoBehaviour
     public void OnButtonClick()
     {
         // Ativar o painel de informações do item
+        useItemButton.onClick.RemoveAllListeners();
         itemInfoPanel.SetActive(true);
 
         // Atualizar o nome e descrição do item no painel
@@ -74,7 +75,8 @@ public class ItemButtonHandler : MonoBehaviour
                 break;
 
             case "Health Potion":
-                if(PlayerPrefs.GetString("CurrentLevel","Default")=="Level 1") logic1.takeDamage(1);
+                Debug.Log("AAAAAAAAAAAAAAAAAAAAA");
+                if(PlayerPrefs.GetString("CurrentLevel","Default")=="Level 1") logic1.increaseLives(1);
                 // fazer else ifs pos outros niveis
                 break;
 

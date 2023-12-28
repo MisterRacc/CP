@@ -81,6 +81,12 @@ public class LogicScript : MonoBehaviour
     }
 }
 
+    public void increaseLives(int amount){
+        lives += amount;
+        livesText = GameObject.Find("Current Lives").GetComponent<Text>();
+        livesText.text = lives.ToString();
+    }
+
     public void takeDamage(int amount)
     {
         if(lives > 0){
