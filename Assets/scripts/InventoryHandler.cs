@@ -9,6 +9,7 @@ public class InventoryHandler : MonoBehaviour
 {
 
     public GameObject Inventory;
+    public GameObject ItemInfoPanel;
     public GameObject InventoryManager;
     public List<Button> itemButtons;
     public Text messageText;
@@ -32,6 +33,7 @@ public class InventoryHandler : MonoBehaviour
     }
 
     public void CloseInventory(){
+        ItemInfoPanel.SetActive(false);
         Inventory.SetActive(false);
         resetImages();
         Time.timeScale = 1f;

@@ -4575,6 +4575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Inventory: {fileID: 371986160}
+  ItemInfoPanel: {fileID: 247083360}
   InventoryManager: {fileID: 169168958}
   itemButtons:
   - {fileID: 0}
