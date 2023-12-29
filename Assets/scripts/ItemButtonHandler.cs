@@ -13,16 +13,27 @@ public class ItemButtonHandler : MonoBehaviour
     private string itemDescription;
     private string itemId;
     private Joystick js;
+
     private LogicScript logic1;
     private PlayerScript player1;
+
+    private Leve2LogicScript logic2;
+    private BunnyController2 bunny;
 
     // Start is called before the first frame update
     void Start()
     {
         js = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Joystick>();
-        if(PlayerPrefs.GetString("CurrentLevel","Default")=="Level 1"){
+
+        if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1")
+        {
             logic1 = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
             player1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+        }
+        else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2")
+        {
+            logic2 = GameObject.FindGameObjectWithTag("Logic").GetComponent<Leve2LogicScript>();
+            bunny = GameObject.FindGameObjectWithTag("Bunny").GetComponent<BunnyController2>();
         }
     }
 
@@ -71,22 +82,22 @@ public class ItemButtonHandler : MonoBehaviour
         switch(name)
         {
             case "Energy Gel":
-                js.ActivateSpeedBoost(500);
+                js.ActivateSpeedBoost(100);
                 break;
 
             case "Health Potion":
-                if(PlayerPrefs.GetString("CurrentLevel","Default")=="Level 1") logic1.increaseLives(1);
-                // fazer else ifs pos outros niveis
+                if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1") logic1.increaseLives(1);
+                else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2") logic2.increaseLives(1);
                 break;
 
             case "Fire Resistance Potion":
-                if(PlayerPrefs.GetString("CurrentLevel","Default")=="Level 1") player1.SetFire();
-                // fazer else ifs pos outros niveis
+                if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1") player1.SetFire();
+                else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2") bunny.SetFire();
                 break;
 
             case "Invisible Potion":
-                if(PlayerPrefs.GetString("CurrentLevel","Default")=="Level 1") player1.SetProjectile();
-                // fazer else ifs pos outros niveis
+                if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1") player1.SetProjectile();
+                else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2") bunny.SetProjectile();
                 break;
         }
     }

@@ -84,7 +84,7 @@ public class Level2LogicScript : MonoBehaviour
 
     public void takeDamage()
     {
-        if(lives>0){
+        if(lives > 0){
             lives -= 1;
         }
 
@@ -100,6 +100,12 @@ public class Level2LogicScript : MonoBehaviour
         }
 
         Debug.Log("lives: " + lives);
+    }
+
+    public void increaseLives(int amount){
+        lives += amount;
+        livesText = GameObject.Find("Current Lives").GetComponent<Text>();
+        livesText.text = lives.ToString();
     }
 
 

@@ -5,9 +5,16 @@ using UnityEngine;
 public class BunnyController2 : MonoBehaviour
 {
     public float speed; // Velocidade de movimento do coelho
+
     private Transform target;
     private Level2LogicScript logic;
     private bool hit = false;
+    private bool fireResistance;
+    private float fireDuration = 5;
+    private float fireTimer = 0;
+    private bool projectileResistance;
+    private float projectileDuration = 5;
+    private float projectileTimer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,14 +28,43 @@ public class BunnyController2 : MonoBehaviour
         if(getIfHit()){
             setIfHit(false);
         }
+
+        if (fireTimer > 0.0f)
+        {
+            fireTimer -= Time.deltaTime;
+
+            // Se o temporizador atingir zero, restaura a velocidade normal
+            if (fireTimer <= 0.0f)
+            {
+                fireResistance = false;
+            }
+        }
+
+        if (projectileTimer > 0.0f)
+        {
+            projectileTimer -= Time.deltaTime;
+
+            if (projectileTimer <= 0.0f)
+            {
+                projectileResistance = false;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision){ 
-        if(collision.CompareTag("Fire") || collision.CompareTag("Enemy")){
-            Debug.Log("Player hit");
-            logic.takeDamage();
-            logic.resetTimeWithoutDamage();
-            setIfHit(true);
+        if(collision.CompareTag("Fire")){
+            if(!GetFire()){
+                Debug.Log("Player hit");
+                logic.takeDamage(-1);
+                setIfHit(true);
+            }
+        }
+        else if(collision.CompareTag("Enemy")){
+            if(!GetProjectile()){
+                Debug.Log("Player hit");
+                logic.takeDamage(-1);
+                setIfHit(true);
+            }
         }
     }
 
@@ -40,4 +76,21 @@ public class BunnyController2 : MonoBehaviour
         return hit;
     }
 
+    public void SetFire(){
+        fireResistance = true;
+        fireTimer = fireDuration;
+    }
+
+    public bool GetFire(){
+        return fireResistance;
+    }
+
+    public void SetProjectile(){
+        projectileResistance = true;
+        projectileTimer = projectileDuration;
+    }
+
+    public bool GetProjectile(){
+        return projectileResistance;
+    }
 }

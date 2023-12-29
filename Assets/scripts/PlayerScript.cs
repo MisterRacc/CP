@@ -22,24 +22,20 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Verifica se a mudança de velocidade está ativa
         if (fireTimer > 0.0f)
         {
             fireTimer -= Time.deltaTime;
 
-            // Se o temporizador atingir zero, restaura a velocidade normal
             if (fireTimer <= 0.0f)
             {
                 fireResistance = false;
             }
         }
 
-        // Verifica se a mudança de velocidade está ativa
         if (projectileTimer > 0.0f)
         {
             projectileTimer -= Time.deltaTime;
 
-            // Se o temporizador atingir zero, restaura a velocidade normal
             if (projectileTimer <= 0.0f)
             {
                 projectileResistance = false;
