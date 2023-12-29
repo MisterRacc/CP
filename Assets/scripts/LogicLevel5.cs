@@ -63,7 +63,8 @@ public class LogicLevel5 : MonoBehaviour
             levelCompleted = true;
         }
     }
-     public void TakeDamage()
+    
+    public void TakeDamage()
     {
         lives -= 1;
         UpdateLivesUI();
@@ -73,12 +74,20 @@ public class LogicLevel5 : MonoBehaviour
             gameOver();
         }
     }
+
+    public void increaseLives(int amount){
+        lives += amount;
+        livesText = GameObject.Find("Current Lives").GetComponent<Text>();
+        livesText.text = lives.ToString();
+    }
+
     void gameOver()
     {
         Time.timeScale = 0;
         gameOverScreen.SetActive(true);
     }
-     void UpdateLivesUI()
+
+    void UpdateLivesUI()
     {
         livesText.text = lives.ToString();
     }
