@@ -82,10 +82,10 @@ public class Level2LogicScript : MonoBehaviour
         }
     }
 
-    public void takeDamage()
+    public void takeDamage(int amount)
     {
         if(lives > 0){
-            lives -= 1;
+            lives += amount;
         }
 
         if (livesText != null)

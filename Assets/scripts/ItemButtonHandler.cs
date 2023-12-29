@@ -17,7 +17,7 @@ public class ItemButtonHandler : MonoBehaviour
     private LogicScript logic1;
     private PlayerScript player1;
 
-    private Leve2LogicScript logic2;
+    private Level2LogicScript logic2;
     private BunnyController2 bunny;
 
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class ItemButtonHandler : MonoBehaviour
         }
         else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2")
         {
-            logic2 = GameObject.FindGameObjectWithTag("Logic").GetComponent<Leve2LogicScript>();
+            logic2 = GameObject.FindGameObjectWithTag("Logic").GetComponent<Level2LogicScript>();
             bunny = GameObject.FindGameObjectWithTag("Bunny").GetComponent<BunnyController2>();
         }
     }
