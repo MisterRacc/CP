@@ -44,6 +44,7 @@ public class InventoryHandler : MonoBehaviour
         foreach (Button button in itemButtons)
         {
             button.GetComponent<Image>().sprite = sprite;
+            button.onClick.RemoveAllListeners();
         }
     }
 
