@@ -8243,7 +8243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 483244735}
-  normalSpeed: 0
+  normalSpeed: 150
   minX: 100
   maxX: 1800
   minY: 50
