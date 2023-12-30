@@ -36,7 +36,7 @@ public class LeftSpawner : MonoBehaviour
         }    
         else if (SceneManager.GetActiveScene().name == "Level 4"){
             Debug.Log("Entrou 2");
-            entity = Random.Range(0, 1) == 1 ? Instantiate(heartPrefab) : Instantiate(trashPrefab);
+            entity = Random.Range(0, 7) == 1 ? Instantiate(heartPrefab) : Instantiate(trashPrefab);
         }
         else{
             Debug.Log("Scene: " + SceneManager.GetActiveScene().name);
