@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RightSpawner : MonoBehaviour
 {
     public GameObject fishPrefab;
     public GameObject trashPrefab;
+    public GameObject heartPrefab;
     private float spawnX = 2400;
     private float spawnY = 500;
 
@@ -26,8 +28,19 @@ public class RightSpawner : MonoBehaviour
     }
 
     public void SpawnFromRight(){
-        GameObject entity = Random.Range(0, 2) == 1 ? Instantiate(fishPrefab) : Instantiate(trashPrefab);
-
+        GameObject entity = null;
+        Debug.Log("Scene: " + SceneManager.GetActiveScene().name);
+        if (SceneManager.GetActiveScene().name == "Level 3"){
+            Debug.Log("Entrou 1");
+            entity = Random.Range(0, 2) == 1 ? Instantiate(fishPrefab) : Instantiate(trashPrefab);
+        }    
+        else if (SceneManager.GetActiveScene().name == "Level 4"){
+            Debug.Log("Entrou 2");
+            entity = Random.Range(0, 1) == 1 ? Instantiate(heartPrefab) : Instantiate(trashPrefab);
+        }
+        else{
+            Debug.Log("Scene: " + SceneManager.GetActiveScene().name);
+        }
         MovementsUnderwater mu = entity.GetComponent<MovementsUnderwater>();
         mu.DefineSpawn(false);
         entity.transform.SetParent(GameObject.FindGameObjectWithTag("Spawner").transform, false);
