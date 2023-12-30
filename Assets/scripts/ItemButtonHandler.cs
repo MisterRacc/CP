@@ -20,6 +20,9 @@ public class ItemButtonHandler : MonoBehaviour
     private Level2LogicScript logic2;
     private BunnyController2 bunny;
 
+    private LogicLevel3 logic3;
+    private HookScript player3;
+
     private LogicLevel5 logic5;
     private PlayerLvl5Script player5;
 
@@ -37,6 +40,11 @@ public class ItemButtonHandler : MonoBehaviour
         {
             logic2 = GameObject.FindGameObjectWithTag("Logic").GetComponent<Level2LogicScript>();
             bunny = GameObject.FindGameObjectWithTag("Bunny").GetComponent<BunnyController2>();
+        }
+        else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 3")
+        {
+            logic3 = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicLevel3>();
+            player3 = GameObject.FindGameObjectWithTag("Player").GetComponent<HookScript>();
         }
         else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 5")
         {
@@ -104,6 +112,7 @@ public class ItemButtonHandler : MonoBehaviour
             case "Health Potion":
                 if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1") logic1.increaseLives(1);
                 else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2") logic2.increaseLives(1);
+                else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 3") logic3.increaseLives(1);
                 else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 5") logic5.increaseLives(1);
                 break;
 

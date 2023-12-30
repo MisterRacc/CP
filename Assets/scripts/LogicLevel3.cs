@@ -11,7 +11,7 @@ public class LogicLevel3 : MonoBehaviour
     public int lives;
     public Text livesText;
     public Text scoreText;
-    public ScoreAdder scoreUpdater; // Reference to ScoreUpdater script
+    public ScoreAdder scoreUpdater;
     public GameObject gameOverScreen;
     public TMP_Text timerText;
     public GameObject completedLevelScreen;
@@ -66,7 +66,6 @@ public class LogicLevel3 : MonoBehaviour
         }
     }
 
-
     public void TakeDamage()
     {
         lives -= 1;
@@ -76,6 +75,12 @@ public class LogicLevel3 : MonoBehaviour
         {
             gameOver();
         }
+    }
+
+    public void increaseLives(int amount){
+        lives += amount;
+        livesText = GameObject.Find("Current Lives").GetComponent<Text>();
+        livesText.text = lives.ToString();
     }
 
     void UpdateLivesUI()
