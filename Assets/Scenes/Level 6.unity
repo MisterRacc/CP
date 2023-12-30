@@ -2488,7 +2488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 152, y: 51}
+  m_AnchoredPosition: {x: -9, y: 97}
   m_SizeDelta: {x: 396.2, y: 136.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &665806872
@@ -2518,7 +2518,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 59
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -7154,7 +7154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timertext: {fileID: 665806872}
-  initialTime: 100
+  initialTime: 300
   gameOverScreen: {fileID: 1940251108}
   lives: 5
   livesText: {fileID: 993900743}
@@ -7890,7 +7890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1288856103}
-  normalSpeed: 150
+  normalSpeed: 100
   minX: 200
   maxX: 1800
   minY: 250

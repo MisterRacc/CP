@@ -17,7 +17,7 @@ public class LogicLevel6 : MonoBehaviour
     public int lives;
     public Text livesText;
     public Text scoreText;
-    public ScoreAdder scoreUpdater; // Reference to ScoreUpdater script
+    public ScoreAdder scoreUpdater;
     public TMP_Text timer_Text;
     public GameObject completedLevelScreen;
     private bool levelCompleted = false;
@@ -39,10 +39,11 @@ public class LogicLevel6 : MonoBehaviour
     {
         if (timer_Text.text == "00:00")
         {
-                completedLevel();
+            completedLevel();
         }
     }
-     void UpdateLivesUI()
+    
+    void UpdateLivesUI()
     {
         livesText.text = lives.ToString();
     }
@@ -55,6 +56,17 @@ public class LogicLevel6 : MonoBehaviour
         if(time == 0){
             GameOver();
         }
+    }
+
+    void UpdateTimertext()
+    {
+        timertext.text = time.ToString();
+    }
+
+    public void IncreaseTimer(int amount)
+    {
+        time += amount;
+        UpdateTimertext();
     }
 
     public void completedLevel()
@@ -81,17 +93,6 @@ public class LogicLevel6 : MonoBehaviour
 
             levelCompleted = true;
         }
-    }
-
-    void UpdateTimertext()
-    {
-        livesText.text = lives.ToString();
-    }
-
-    public void IncreaseTimer(int amount)
-    {
-        time += amount;
-        UpdateTimertext();
     }
 
     public void SetLeavesCount(int amount){
