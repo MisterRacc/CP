@@ -7,10 +7,10 @@ public class PlayerScript : MonoBehaviour
     private LogicScript logic;
     private bool hit = false;
     private bool fireResistance;
-    private float fireDuration = 5;
+    private float fireDuration = 20;
     private float fireTimer = 0;
     private bool projectileResistance;
-    private float projectileDuration = 5;
+    private float projectileDuration = 10;
     private float projectileTimer = 0;
 
     // Start is called before the first frame update

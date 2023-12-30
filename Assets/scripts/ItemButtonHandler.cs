@@ -90,7 +90,7 @@ public class ItemButtonHandler : MonoBehaviour
         switch(name)
         {
             case "Energy Gel":
-                js.ActivateSpeedBoost(100);
+                js.ActivateSpeedBoost(150);
                 break;
 
             case "Health Potion":

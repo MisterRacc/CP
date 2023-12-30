@@ -15,7 +15,7 @@ public class Joystick : MonoBehaviour
     private Vector2 pointA;
     private Vector2 pointB;
     private float currentSpeed;
-    private float speedChangeDuration = 5;
+    private float speedChangeDuration = 10;
     private float speedChangeTimer = 0;
 
     // Start is called before the first frame update
