@@ -877,16 +877,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 522206610}
+  - {fileID: 1709627133}
+  - {fileID: 552368032}
+  - {fileID: 2130864175}
+  - {fileID: 1998384190}
+  - {fileID: 546119159}
+  - {fileID: 162879059}
+  - {fileID: 1521945341}
+  - {fileID: 430229199}
+  - {fileID: 1963692876}
   itemInfoPanel: {fileID: 247083360}
   itemNameText: {fileID: 1593238293}
   itemDescriptionText: {fileID: 1214974798}
@@ -4578,16 +4578,16 @@ MonoBehaviour:
   ItemInfoPanel: {fileID: 247083360}
   InventoryManager: {fileID: 169168958}
   itemButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 522206610}
+  - {fileID: 1709627133}
+  - {fileID: 552368032}
+  - {fileID: 2130864175}
+  - {fileID: 1998384190}
+  - {fileID: 546119159}
+  - {fileID: 162879059}
+  - {fileID: 1521945341}
+  - {fileID: 430229199}
+  - {fileID: 1963692876}
   messageText: {fileID: 1144638483}
 --- !u!4 &1091139782
 Transform:
@@ -8816,7 +8816,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1091139781}
         m_TargetAssemblyTypeName: InventoryHandler, Assembly-CSharp
         m_MethodName: CloseInventory
         m_Mode: 1
