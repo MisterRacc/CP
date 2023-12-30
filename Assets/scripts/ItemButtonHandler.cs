@@ -67,10 +67,18 @@ public class ItemButtonHandler : MonoBehaviour
         // Atualizar o nome e descrição do item no painel
         itemNameText.text = itemName;
         itemDescriptionText.text = itemDescription;
-        useItemButton.onClick.AddListener(() => UseItem(itemId));
+
+        if ((PlayerPrefs.GetString("CurrentLevel", "Default") != "Level 1" && PlayerPrefs.GetString("CurrentLevel", "Default") != "Level 2")
+            && (itemName == "Fire Resistance Potion" || itemName == "Invisible Potion")){
+            useItemButton.interactable = false;
+        }
+        else{
+            useItemButton.onClick.AddListener(() => UseItem(itemId));
+        }
     }
 
     public void OnCloseButtonClick(){
+        useItemButton.interactable = true;
         itemInfoPanel.SetActive(false);
     }
 
