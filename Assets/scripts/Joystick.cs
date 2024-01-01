@@ -67,18 +67,52 @@ public class Joystick : MonoBehaviour
     // https://www.youtube.com/watch?v=uVxnvXonGXY fiquei nos 8 min mas tmb é imagens para o joystick depois vê-se isso
 
     void moveCharacter(Vector2 direction){
-        if(player.position.x >= minX) player.Translate(direction*GetSpeed()*Time.deltaTime);
-        else player.position = new Vector3(minX, player.position.y, player.position.z);
+        
 
-        if(player.position.x <= maxX) player.Translate(direction*GetSpeed()*Time.deltaTime);
-        else player.position = new Vector3(maxX, player.position.y, player.position.z);
+        if (player.position.x >= minX) {
+            changeDirection(direction);
+            player.Translate(direction * GetSpeed() * Time.deltaTime);
+        } else {
+            player.position = new Vector3(minX, player.position.y, player.position.z);
+        }
 
-        if(player.position.y >= minY) player.Translate(direction*GetSpeed()*Time.deltaTime);
-        else player.position = new Vector3(player.position.x, minY, player.position.z);
+        if (player.position.x <= maxX) {
+            changeDirection(direction);
+            player.Translate(direction * GetSpeed() * Time.deltaTime);
+        } else {
+            player.position = new Vector3(maxX, player.position.y, player.position.z);
+        }
 
-        if(player.position.y <= maxY) player.Translate(direction*GetSpeed()*Time.deltaTime);
-        else player.position = new Vector3(player.position.x, maxY, player.position.z);
+        if (player.position.y >= minY) {
+            changeDirection(direction);
+            player.Translate(direction * GetSpeed() * Time.deltaTime);
+        } else {
+            player.position = new Vector3(player.position.x, minY, player.position.z);
+        }
+
+        if (player.position.y <= maxY) {
+            changeDirection(direction);
+            player.Translate(direction * GetSpeed() * Time.deltaTime);
+        } else {
+            player.position = new Vector3(player.position.x, maxY, player.position.z);
+        }
     }
+
+    private void changeDirection(Vector2 direction){
+        Vector3 currentScale = player.localScale;
+
+        float scaleX = currentScale.x;
+        float scaleY = currentScale.y;
+        float scaleZ = currentScale.z;
+
+
+        if(direction.x < 0 && scaleX > 0){
+            player.localScale = new Vector3(-scaleX, scaleY, scaleZ);
+        } 
+        else if(direction.x > 0 && scaleX < 0){
+            player.localScale = new Vector3(-scaleX, scaleY, scaleZ);
+        } 
+    }   
 
     public float GetSpeed(){
         return currentSpeed;
