@@ -75,11 +75,6 @@ public class Level2LogicScript : MonoBehaviour
             Debug.LogError("Unable to find ScoreAdder. Make sure the ScoreAdder script is attached to the same GameObject as LogicScript.");
         }
 
-        // resultText = GameObject.Find("ResultMessage").GetComponent<Text>();
-        // if (resultText == null)
-        // {
-        //     Debug.LogError("Unable to find resultText. Make sure the GameObject is present in the scene and has a Text component.");
-        // }
     }
 
     public void takeDamage(int amount)
