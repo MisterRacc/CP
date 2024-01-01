@@ -8,6 +8,7 @@ public class RightSpawner : MonoBehaviour
     public GameObject fishPrefab;
     public GameObject trashPrefab;
     public GameObject heartPrefab;
+    public GameObject seastarPrefab;
     private float spawnX = 2400;
     private float spawnY = 500;
 
@@ -33,8 +34,15 @@ public class RightSpawner : MonoBehaviour
             entity = Random.Range(0, 2) == 1 ? Instantiate(fishPrefab) : Instantiate(trashPrefab);
         }    
         else if (SceneManager.GetActiveScene().name == "Level 4"){
-            entity = Random.Range(0, 7) == 1 ? Instantiate(heartPrefab) : Instantiate(trashPrefab);
-        }
+            int randomValue = Random.Range(1, 11);
+            if (randomValue == 1){
+                entity = Instantiate(heartPrefab);
+            } else if (randomValue >= 2 && randomValue <= 3){
+                entity = Instantiate(seastarPrefab);
+            } else {
+                entity = Instantiate(trashPrefab);
+            }
+        } 
         MovementsUnderwater mu = entity.GetComponent<MovementsUnderwater>();
         mu.DefineSpawn(false);
         entity.transform.SetParent(GameObject.FindGameObjectWithTag("Spawner").transform, false);

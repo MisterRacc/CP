@@ -2574,6 +2574,7 @@ MonoBehaviour:
   fishPrefab: {fileID: 3529535083765293250, guid: 70c06e34360a0ad4e840d8f4aaacf5c4, type: 3}
   trashPrefab: {fileID: 2002695000234012579, guid: 3f6b07612884a244cba4dee20ee8a5e6, type: 3}
   heartPrefab: {fileID: 1923800618374686405, guid: cef769cbd912e2e4aa62f339504befe2, type: 3}
+  seastarPrefab: {fileID: 3369784546399342026, guid: 03213af719de67b4386cb8238c7a0de9, type: 3}
 --- !u!1 &943279549
 GameObject:
   m_ObjectHideFlags: 0
@@ -4697,6 +4698,7 @@ MonoBehaviour:
   fishPrefab: {fileID: 3529535083765293250, guid: 70c06e34360a0ad4e840d8f4aaacf5c4, type: 3}
   trashPrefab: {fileID: 2002695000234012579, guid: 3f6b07612884a244cba4dee20ee8a5e6, type: 3}
   heartPrefab: {fileID: 1923800618374686405, guid: cef769cbd912e2e4aa62f339504befe2, type: 3}
+  seastarPrefab: {fileID: 3369784546399342026, guid: 03213af719de67b4386cb8238c7a0de9, type: 3}
 --- !u!1 &1785694605
 GameObject:
   m_ObjectHideFlags: 0
