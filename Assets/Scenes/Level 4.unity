@@ -2450,7 +2450,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00:00
+  m_text: 00:01
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3332,7 +3332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1220230643}
-  - component: {fileID: 1220230642}
+  - component: {fileID: 1220230644}
   - component: {fileID: 1220230641}
   - component: {fileID: 1220230640}
   - component: {fileID: 1220230639}
@@ -3381,27 +3381,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messageText: {fileID: 0}
---- !u!114 &1220230642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1220230638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81e6d80ef3f31d843a0297125b088c0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lives: 5
-  livesText: {fileID: 1436158460}
-  scoreText: {fileID: 740582205}
-  scoreUpdater: {fileID: 1220230640}
-  gameOverScreen: {fileID: 1242833924}
-  timerText: {fileID: 773840943}
-  completedLevelScreen: {fileID: 1785694605}
-  PlayfabManager: {fileID: 6445452}
-  resultText: {fileID: 1975488989}
 --- !u!4 &1220230643
 Transform:
   m_ObjectHideFlags: 0
@@ -3417,6 +3396,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1220230644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220230638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e0d5bb6dbbf4043bb0654491cce4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 0
+  livesText: {fileID: 1436158460}
+  scoreText: {fileID: 740582205}
+  scoreUpdater: {fileID: 1220230640}
+  gameOverScreen: {fileID: 1242833924}
+  timerText: {fileID: 773840943}
+  completedLevelScreen: {fileID: 1785694605}
+  PlayfabManager: {fileID: 6445452}
+  resultText: {fileID: 1975488989}
 --- !u!1 &1226769911
 GameObject:
   m_ObjectHideFlags: 0

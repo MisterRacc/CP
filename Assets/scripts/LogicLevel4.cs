@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using PlayFab;
 using PlayFab.ClientModels;
 using TMPro;
-public class LogicLevel3 : MonoBehaviour
+public class LogicLevel4 : MonoBehaviour
 {
     public int lives;
     public Text livesText;
@@ -59,8 +59,8 @@ public class LogicLevel3 : MonoBehaviour
                     resultText.text = "Congratulations! You have completed the level! You won: " + result + "!";
                 }
             }
-            PlayerPrefs.SetInt("Level" + 3 + "Completed",2);
-            PlayerPrefs.SetInt("Level" + 4 + "Completed",1);
+            PlayerPrefs.SetInt("Level" + 4 + "Completed",2);
+            PlayerPrefs.SetInt("Level" + 5 + "Completed",1);
 
             levelCompleted = true;
         }
