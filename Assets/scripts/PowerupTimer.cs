@@ -8,6 +8,11 @@ public class PowerupTimer : MonoBehaviour
     private float currentTimer;
     private bool isCounting = false;
 
+    void Start()
+    {
+        powerupTimerText.enabled = false;
+    }
+    
     public void StartTimer(float duration)
     {
         powerupTimerText.enabled = true;

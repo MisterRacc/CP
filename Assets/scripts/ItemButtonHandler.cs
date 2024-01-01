@@ -129,11 +129,13 @@ public class ItemButtonHandler : MonoBehaviour
             case "Fire Resistance Potion":
                 if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1") player1.SetFire();
                 else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2") bunny.SetFire();
+                powerupTimer.StartTimer(20f);
                 break;
 
             case "Invisible Potion":
                 if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1") player1.SetProjectile();
                 else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2") bunny.SetProjectile();
+                powerupTimer.StartTimer(10f);
                 break;
         }
     }
