@@ -8,9 +8,12 @@ public class PowerupTimer : MonoBehaviour
     private float currentTimer;
     private bool isCounting = false;
 
+    private PowerupDisplay powerupDisplay;
+
     void Start()
     {
         powerupTimerText.enabled = false;
+        powerupDisplay = FindObjectOfType<PowerupDisplay>();
     }
     
     public void StartTimer(float duration)
@@ -32,6 +35,7 @@ public class PowerupTimer : MonoBehaviour
                 currentTimer = 0;
                 isCounting = false;
                 powerupTimerText.enabled = false;
+                powerupDisplay.RemoveDisplay();
             }
 
             UpdateTimerText();

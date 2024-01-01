@@ -16,6 +16,7 @@ public class PowerupDisplay : MonoBehaviour
         {
             case "Energy Gel":
                 powerupImage.sprite = energyGelSprite;
+                powerupImage.rectTransform.sizeDelta = new Vector2(150f, powerupImage.rectTransform.sizeDelta.y);
                 break;
             case "Fire Resistance Potion":
                 powerupImage.sprite = fireResistanceSprite;
@@ -27,6 +28,11 @@ public class PowerupDisplay : MonoBehaviour
                 break;
         }
         powerupImage.enabled = true;
+    }
+
+    public void RemoveDisplay(){
+        powerupImage.enabled = false;
+        powerupImage.rectTransform.sizeDelta = new Vector2(170f, powerupImage.rectTransform.sizeDelta.y);
     }
 
     void Start()
