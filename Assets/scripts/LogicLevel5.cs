@@ -11,7 +11,7 @@ public class LogicLevel5 : MonoBehaviour
     public int lives;
     public Text livesText;
     public Text scoreText;
-    public ScoreAdder scoreUpdater; // Reference to ScoreUpdater script
+    public ScoreAdder scoreUpdater;
     public GameObject gameOverScreen;
     public TMP_Text timerText;
     public GameObject completedLevelScreen;
