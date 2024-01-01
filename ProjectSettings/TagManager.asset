@@ -21,6 +21,7 @@ TagManager:
   - Restricted
   - WaterZone
   - Heart
+  - SeaStar
   layers:
   - Default
   - TransparentFX
