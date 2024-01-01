@@ -26,10 +26,18 @@ public class ItemButtonHandler : MonoBehaviour
     private LogicLevel5 logic5;
     private PlayerLvl5Script player5;
 
+    private PowerupTimer powerupTimer;
+
     // Start is called before the first frame update
     void Start()
     {
         js = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Joystick>();
+
+        powerupTimer = FindObjectOfType<PowerupTimer>();
+
+        if (powerupTimer == null){
+            Debug.LogError("PowerupTimer not found in the scene.");
+        }
 
         if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1")
         {
@@ -103,10 +111,12 @@ public class ItemButtonHandler : MonoBehaviour
     }
 
     void ApplyEffect(string name){
+
         switch(name)
         {
             case "Energy Gel":
                 js.ActivateSpeedBoost(150);
+                powerupTimer.StartTimer(10f);
                 break;
 
             case "Health Potion":
