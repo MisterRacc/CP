@@ -956,6 +956,7 @@ GameObject:
   - component: {fileID: 146161178}
   - component: {fileID: 146161180}
   - component: {fileID: 146161179}
+  - component: {fileID: 146161181}
   m_Layer: 5
   m_Name: Powerup Display
   m_TagString: Untagged
@@ -1003,7 +1004,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9c2d03d01f456df4b8ffd2031f548e11, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0a7e7f4f5893ed64db37ae77b7c76fda, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1021,6 +1022,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146161177}
   m_CullTransparentMesh: 1
+--- !u!114 &146161181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146161177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eecab551e6083540982e313bd313a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupImage: {fileID: 146161179}
+  energyGelSprite: {fileID: 21300000, guid: 41b40bad33223e64aae5d188e6f72078, type: 3}
+  invisibilitySprite: {fileID: 21300000, guid: 0a7e7f4f5893ed64db37ae77b7c76fda, type: 3}
+  fireResistanceSprite: {fileID: 21300000, guid: 2076fbf30a98ee242ba4e8e26a9b2765, type: 3}
 --- !u!1 &217616543
 GameObject:
   m_ObjectHideFlags: 0
@@ -9249,7 +9266,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 137, y: -120}
+  m_AnchoredPosition: {x: 139, y: -120}
   m_SizeDelta: {x: 0.4891, y: 49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2122218412
