@@ -11,6 +11,9 @@ public class PlayerLvl5Script : MonoBehaviour
     private bool inWaterArea;
     private bool inContactWithPlant;
     private bool WaterDropped;
+    private bool plantTimerStop;
+    private float stopTimer;
+    private float stopDuration = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,21 @@ public class PlayerLvl5Script : MonoBehaviour
         }
         else{
             BackToWhereYouCanBe();
+        }
+
+        if(stopTimer > 0){
+            stopTimer -= Time.deltaTime;
+
+            if (stopTimer <= 0.0f)
+            {
+                plantTimerStop = false;
+            }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision){
+        if(collision.CompareTag("StopPlantsTimer")){
+            SetPlantTimerStop();
         }
     }
 
@@ -95,5 +113,14 @@ public class PlayerLvl5Script : MonoBehaviour
 
     public void DisappearBucket(){
         bucket.SetActive(false);
+    }
+
+    public void SetPlantTimerStop(){
+        plantTimerStop = true;
+        stopTimer = stopDuration;
+    }
+
+    public bool GetPlantTimerStop(){
+        return plantTimerStop;
     }
 }

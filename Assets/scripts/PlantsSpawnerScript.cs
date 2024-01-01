@@ -15,11 +15,12 @@ public class PlantsSpawnerScript : MonoBehaviour
     private float minDistance = 150;
     private List<Vector3> spawnedPositions = new List<Vector3>();
     private int plantsCount = 0;
+    private PlayerLvl5Script ps;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLvl5Script>();
     }
 
     // Update is called once per frame
@@ -30,7 +31,9 @@ public class PlantsSpawnerScript : MonoBehaviour
                 timer += Time.deltaTime;
             }
             else{
-                spawnPlants();
+                if(!ps.GetPlantTimerStop()){
+                    spawnPlants();
+                }
             }
         }
     }

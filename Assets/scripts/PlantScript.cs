@@ -32,12 +32,14 @@ public class PlantScript : MonoBehaviour
 
     void UpdateTimer()
     {
-        time--;
-        UpdateTimertext();
+        if(!ps.GetPlantTimerStop()){
+            time--;
+            UpdateTimertext();
 
-        if(time == 0){
-            spawner.DestroyPlant(gameObject);
-            logic.TakeDamage();
+            if(time == 0){
+                spawner.DestroyPlant(gameObject);
+                logic.TakeDamage();
+            }
         }
     }
 
