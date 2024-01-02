@@ -32,7 +32,7 @@ public class EnemySpawnScript : MonoBehaviour
 
         GameObject enemy = Instantiate(enemyPrefab, new Vector3(0, randomHeight, 0), Quaternion.identity);
         enemy.transform.SetParent(GameObject.FindGameObjectWithTag("Spawner").transform, false);
-
+        
         timer = 0;
     }
 }
