@@ -25,6 +25,9 @@ public class ItemButtonHandler : MonoBehaviour
     private LogicLevel3 logic3;
     private HookScript player3;
 
+    private LogicLevel4 logic4;
+    private TurtleScript player4;
+
     private LogicLevel5 logic5;
     private PlayerLvl5Script player5;
 
@@ -57,6 +60,11 @@ public class ItemButtonHandler : MonoBehaviour
         {
             logic3 = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicLevel3>();
             player3 = GameObject.FindGameObjectWithTag("Player").GetComponent<HookScript>();
+        }
+        else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 4")
+        {
+            logic4 = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicLevel4>();
+            player4 = GameObject.FindGameObjectWithTag("Player").GetComponent<TurtleScript>();
         }
         else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 5")
         {
@@ -131,6 +139,7 @@ public class ItemButtonHandler : MonoBehaviour
                     if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1") logic1.increaseLives(1);
                     else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2") logic2.increaseLives(1);
                     else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 3") logic3.increaseLives(1);
+                    else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 4") logic4.increaseLives(1);
                     else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 5") logic5.increaseLives(1);
                     break;
 
