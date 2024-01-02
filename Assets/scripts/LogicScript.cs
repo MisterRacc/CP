@@ -13,7 +13,7 @@ public class LogicScript : MonoBehaviour
     public Button Interact;
     public GameObject gameOverScreen;
     public GameObject completedLevelScreen;
-    private bool bunnyCaught = false;
+    private bool bunnyCaught;
     private float timeBunnyCaught = 0f;
     private bool levelCompleted = false;
     private BunnyController bc;
@@ -23,6 +23,7 @@ public class LogicScript : MonoBehaviour
     public Text resultText;
     public TMP_Text timerText;
     public PlayfabManager PlayfabManager;
+    private bool canDeleteTrash;
 
     void Start()
     {
@@ -58,28 +59,28 @@ public class LogicScript : MonoBehaviour
     }
 
     void ResetVariables()
-{
-    lives = 5;  
-    Interact.interactable = true;
-    livesText = GameObject.Find("Current Lives").GetComponent<Text>();
-    if (livesText == null)
     {
-        Debug.LogError("Unable to find livesText. Make sure the GameObject is present in the scene and has a Text component.");
-    }
-    livesText.text = lives.ToString();
+        lives = 5;  
+        Interact.interactable = true;
+        livesText = GameObject.Find("Current Lives").GetComponent<Text>();
+        if (livesText == null)
+        {
+            Debug.LogError("Unable to find livesText. Make sure the GameObject is present in the scene and has a Text component.");
+        }
+        livesText.text = lives.ToString();
 
-    bc = GameObject.FindGameObjectWithTag("Bunny").GetComponent<BunnyController>();
-    if (bc == null)
-    {
-        Debug.LogError("Unable to find BunnyController. Make sure the GameObject with the 'Bunny' tag is present in the scene.");
-    }
+        bc = GameObject.FindGameObjectWithTag("Bunny").GetComponent<BunnyController>();
+        if (bc == null)
+        {
+            Debug.LogError("Unable to find BunnyController. Make sure the GameObject with the 'Bunny' tag is present in the scene.");
+        }
 
-    ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
-    if (ps == null)
-    {
-        Debug.LogError("Unable to find PlayerScript. Make sure the GameObject with the 'Player' tag is present in the scene.");
+        ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+        if (ps == null)
+        {
+            Debug.LogError("Unable to find PlayerScript. Make sure the GameObject with the 'Player' tag is present in the scene.");
+        }
     }
-}
 
     public void increaseLives(int amount){
         lives += amount;
@@ -149,18 +150,27 @@ public class LogicScript : MonoBehaviour
         return bunnyCaught;
     }
 
-    public void setBunnyCaught(bool boolean)
+    public void setBunnyCaught()
     {
-        if (bc.areTheyTouching())
-        {
-            Debug.Log("bunny caught");
-            bunnyCaught = boolean;
+        if(ps.GetTouchingTrash()){
+            if(bunnyCaught){
+                bunnyCaught = false;
+            }
+
+            SetCanDeleteTrash(true);
             IncreaseScore();
+        }
+        else{
+            if (bc.areTheyTouching())
+            {
+                bunnyCaught = true;
+                IncreaseScore();
+            }
         }
 
         if (ps.getIfHit())
         {
-            bunnyCaught = boolean;
+            bunnyCaught = false;
         }
     }
 
@@ -171,5 +181,13 @@ public class LogicScript : MonoBehaviour
             // Increase the score using ScoreUpdater script
             scoreUpdater.IncreaseScore(50); // You can adjust the score value as needed
         }
+    }
+
+    public void SetCanDeleteTrash(bool boolean){
+        canDeleteTrash = boolean;
+    }
+
+    public bool GetCanDeleteTrash(){
+        return canDeleteTrash;
     }
 }

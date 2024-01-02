@@ -23,6 +23,7 @@ TagManager:
   - Heart
   - SeaStar
   - StopPlantsTimer
+  - TrashSpawner
   layers:
   - Default
   - TransparentFX
