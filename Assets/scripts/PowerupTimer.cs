@@ -5,15 +5,17 @@ using TMPro;
 public class PowerupTimer : MonoBehaviour
 {
     public TextMeshProUGUI powerupTimerText;
+
     private float currentTimer;
     private bool isCounting = false;
-
     private PowerupDisplay powerupDisplay;
+    private ItemButtonHandler ibh;
 
     void Start()
     {
         powerupTimerText.enabled = false;
         powerupDisplay = FindObjectOfType<PowerupDisplay>();
+        ibh = GameObject.FindGameObjectWithTag("Item Button Handler").GetComponent<ItemButtonHandler>();
     }
     
     public void StartTimer(float duration)
@@ -32,10 +34,13 @@ public class PowerupTimer : MonoBehaviour
 
             if (currentTimer <= 0)
             {
+                ibh.SetDrugs(false);
                 currentTimer = 0;
                 isCounting = false;
                 powerupTimerText.enabled = false;
                 powerupDisplay.RemoveDisplay();
+
+
             }
 
             UpdateTimerText();

@@ -24,6 +24,7 @@ TagManager:
   - SeaStar
   - StopPlantsTimer
   - TrashSpawner
+  - Item Button Handler
   layers:
   - Default
   - TransparentFX
