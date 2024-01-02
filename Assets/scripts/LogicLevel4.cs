@@ -28,7 +28,7 @@ public class LogicLevel4 : MonoBehaviour
     }
     void Start()
     {
-         // Initialize lives and update the UI
+        // Initialize lives and update the UI
         lives = 3; // Set your initial lives value
         UpdateLivesUI();
 

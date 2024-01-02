@@ -269,29 +269,7 @@ public class PlayfabManager : MonoBehaviour
 
     private void GrantItemToPlayer(string itemID) {
         Debug.Log("Dentro da funcao de enviar: " + itemID);
-        PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), result => {
-            var existingItem = result.Inventory.Find(item => item.ItemId == itemID);
-            Debug.Log("Item existente? " + existingItem);
-            if (existingItem != null) {
-                Debug.Log("Item já existe no inventário.");
-                ModifyItemUses(existingItem.ItemInstanceId);
-            } else {
-                Debug.Log("Item não existe no inventário.");
-                AddNewItem(itemID);
-            }
-        }, ErrorMessage);
-    }
-
-    private void ModifyItemUses(string itemInstanceId) {
-        Debug.Log("Dentro da que modifica o item (uses left): " + itemInstanceId);
-        var request = new ExecuteCloudScriptRequest {
-            FunctionName = "ModifyItemUses",
-            FunctionParameter = new { ItemInstanceId = itemInstanceId }
-        };
-
-        PlayFabClientAPI.ExecuteCloudScript(request, result => {
-            Debug.Log("Usos do item modificados com sucesso.");
-        }, ErrorMessage);
+        AddNewItem(itemID);
     }
 
     private void AddNewItem(string itemID) {

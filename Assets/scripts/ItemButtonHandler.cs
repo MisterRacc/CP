@@ -12,6 +12,8 @@ public class ItemButtonHandler : MonoBehaviour
     private string itemName;
     private string itemDescription;
     private string itemId;
+    private bool onDrugs;
+    
     private Joystick js;
 
     private LogicScript logic1;
@@ -22,6 +24,9 @@ public class ItemButtonHandler : MonoBehaviour
 
     private LogicLevel3 logic3;
     private HookScript player3;
+
+    private LogicLevel4 logic4;
+    private TurtleScript player4;
 
     private LogicLevel5 logic5;
     private PlayerLvl5Script player5;
@@ -55,6 +60,11 @@ public class ItemButtonHandler : MonoBehaviour
         {
             logic3 = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicLevel3>();
             player3 = GameObject.FindGameObjectWithTag("Player").GetComponent<HookScript>();
+        }
+        else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 4")
+        {
+            logic4 = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicLevel4>();
+            player4 = GameObject.FindGameObjectWithTag("Player").GetComponent<TurtleScript>();
         }
         else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 5")
         {
@@ -112,36 +122,53 @@ public class ItemButtonHandler : MonoBehaviour
         InventoryHandler.CloseInventory();
     }
 
-    void ApplyEffect(string name){
-
-        switch(name)
+    void ApplyEffect(string name)
+    {
+        if(!GetDrugs())
         {
-            case "Energy Gel":
-                js.ActivateSpeedBoost(150);
-                powerupTimer.StartTimer(10f);
-                powerupDisplay.DisplayPowerup(name);
-                break;
+            switch(name)
+            {
+                case "Energy Gel":
+                    SetDrugs(true);
+                    js.ActivateSpeedBoost(150);
+                    powerupTimer.StartTimer(10f);
+                    powerupDisplay.DisplayPowerup(name);
+                    break;
 
-            case "Health Potion":
-                if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1") logic1.increaseLives(1);
-                else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2") logic2.increaseLives(1);
-                else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 3") logic3.increaseLives(1);
-                else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 5") logic5.increaseLives(1);
-                break;
+                case "Health Potion":
+                    if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1") logic1.increaseLives(1);
+                    else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2") logic2.increaseLives(1);
+                    else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 3") logic3.increaseLives(1);
+                    else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 4") logic4.increaseLives(1);
+                    else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 5") logic5.increaseLives(1);
+                    break;
 
-            case "Fire Resistance Potion":
-                if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1") player1.SetFire();
-                else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2") bunny.SetFire();
-                powerupTimer.StartTimer(20f);
-                powerupDisplay.DisplayPowerup(name);
-                break;
+                case "Fire Resistance Potion":
+                    SetDrugs(true);
+                    if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1") player1.SetFire();
+                    else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2") bunny.SetFire();
+                    powerupTimer.StartTimer(20f);
+                    powerupDisplay.DisplayPowerup(name);
+                    break;
 
-            case "Invisible Potion":
-                if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1") player1.SetProjectile();
-                else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2") bunny.SetProjectile();
-                powerupTimer.StartTimer(10f);
-                powerupDisplay.DisplayPowerup(name);
-                break;
+                case "Invisible Potion":
+                    SetDrugs(true);
+                    if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1") player1.SetProjectile();
+                    else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2") bunny.SetProjectile();
+                    powerupTimer.StartTimer(10f);
+                    powerupDisplay.DisplayPowerup(name);
+                    break;
+            }
         }
+    }
+
+    public void SetDrugs(bool boolean)
+    {  
+        onDrugs = boolean;
+    }
+
+    public bool GetDrugs()
+    {
+        return onDrugs;
     }
 }
