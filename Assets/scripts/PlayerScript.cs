@@ -12,6 +12,7 @@ public class PlayerScript : MonoBehaviour
     private bool projectileResistance;
     private float projectileDuration = 10;
     private float projectileTimer = 0;
+    private bool touchingTrash;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +44,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         if(getIfHit()){
-            logic.setBunnyCaught(false);
+            logic.setBunnyCaught();
             setIfHit(false);
         }
     }
@@ -62,6 +63,18 @@ public class PlayerScript : MonoBehaviour
                 logic.takeDamage(-1);
                 setIfHit(true);
             }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision){
+        if(collision.CompareTag("Trash")){
+            SetTouchingTrash(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision){
+        if(collision.CompareTag("Trash")){
+            SetTouchingTrash(false);
         }
     }
 
@@ -89,5 +102,13 @@ public class PlayerScript : MonoBehaviour
 
     public bool GetProjectile(){
         return projectileResistance;
+    }
+
+    public void SetTouchingTrash(bool boolean){
+        touchingTrash = boolean;
+    }
+
+    public bool GetTouchingTrash(){
+        return touchingTrash;
     }
 }
