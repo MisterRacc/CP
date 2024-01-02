@@ -5,6 +5,8 @@ using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.Services.Core;
+using Unity.Services.Authentication;
 
 public class logoutManager : MonoBehaviour
 {
@@ -13,11 +15,27 @@ public class logoutManager : MonoBehaviour
 
     public void Logout()
     {
-
-        PlayFabClientAPI.ForgetAllCredentials();
+        if (PlayFabClientAPI.IsClientLoggedIn())    
+        {
+            PlayFabClientAPI.ForgetAllCredentials();
+        } else{
+            UnityServices.InitializeAsync();
+            LogoutAnonymous();
+        }
         logoutMsg.text = "Logging out...";
         StartCoroutine(Waiter());
-        
+    }
+
+    public void LogoutAnonymous(){
+        try
+        {
+            AuthenticationService.Instance.SignOut();
+        }
+        catch (AuthenticationException e)
+        {
+            print("Sign out failed!");
+            Debug.LogException(e);
+        }
     }
 
     IEnumerator Waiter()
