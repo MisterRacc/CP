@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlantScript : MonoBehaviour
+public class InvasiveScript : MonoBehaviour
 {
     public Text timertext;
     public int initialTime;
 
-    private PlantsSpawnerScript spawner;
-    private InvasiveSpawnerScript invasiveSpawner;
+    private InvasiveSpawnerScript spawner;
     private LogicLevel5 logic;
     private int time;
     private PlayerLvl5Script ps;
@@ -20,8 +19,7 @@ public class PlantScript : MonoBehaviour
     {
         ps = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLvl5Script>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicLevel5>();
-        spawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<PlantsSpawnerScript>();
-        invasiveSpawner = GameObject.FindGameObjectWithTag("Invasive Spawner").GetComponent<InvasiveSpawnerScript>();
+        spawner = GameObject.FindGameObjectWithTag("Invasive Spawner").GetComponent<InvasiveSpawnerScript>();
         time = initialTime;
         UpdateTimertext();
     }
@@ -36,7 +34,7 @@ public class PlantScript : MonoBehaviour
             if (timerCountdown <= 0)
             {
                 UpdateTimer();
-                timerCountdown = LoseHealth();
+                timerCountdown = 1.0f;
             }
         }
     }
@@ -49,7 +47,6 @@ public class PlantScript : MonoBehaviour
         if (time == 0)
         {
             spawner.DestroyPlant(gameObject);
-            logic.TakeDamage();
         }
     }
 
@@ -58,33 +55,15 @@ public class PlantScript : MonoBehaviour
         timertext.text = $"{time.ToString()}";
     }
 
-    public void IncreaseTimer(int amount)
-    {
-        time += amount;
-        UpdateTimertext();
-    }
-
     void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {
-            if(ps.GetWaterDropped())
+            if(ps.GetDestroyInvasive())
             {
-                IncreaseTimer(10);
-                ps.SetWaterDropped(false);
+                spawner.DestroyPlant(gameObject);
+                ps.SetDestroyInvasive(false);
             }
-        }
-    }
-
-    float LoseHealth()
-    {
-        if(invasiveSpawner.GetInvasivePlantsCount() > 0)
-        {
-            return 0.5f;
-        }
-        else
-        {
-            return 1.0f;
         }
     }
 }

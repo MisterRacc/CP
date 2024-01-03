@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using PlayFab;
 using PlayFab.ClientModels;
 using TMPro;
+
 public class LogicLevel5 : MonoBehaviour
 {
     public int lives;
@@ -20,6 +21,9 @@ public class LogicLevel5 : MonoBehaviour
     public Text resultText;
     private PlayerLvl5Script player;
 
+    private float minDistance = 150;
+    private List<Vector3> spawnedPositions = new List<Vector3>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,10 +32,11 @@ public class LogicLevel5 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update(){
+    void Update()
+    {
         if (timerText.text == "00:00")
         {
-                completedLevel();
+            completedLevel();
         }
     }
 
@@ -75,7 +80,8 @@ public class LogicLevel5 : MonoBehaviour
         }
     }
 
-    public void increaseLives(int amount){
+    public void increaseLives(int amount)
+    {
         lives += amount;
         livesText = GameObject.Find("Current Lives").GetComponent<Text>();
         livesText.text = lives.ToString();
@@ -92,13 +98,21 @@ public class LogicLevel5 : MonoBehaviour
         livesText.text = lives.ToString();
     }
     
-    public void PlayerInteractions(){
-        if(player.GetInWaterArea()){
+    public void PlayerInteractions()
+    {
+        if(player.GetInWaterArea())
+        {
             player.AppearBucket();
         }
-        else if(player.GetInContactWithPlant()){
+        else if(player.GetInContactWithPlant())
+        {
             player.DisappearBucket();
             player.SetWaterDropped(true);
+            IncreaseScore();
+        }
+        else if(player.GetInContactWithInvasive())
+        {
+            player.SetDestroyInvasive(true);
             IncreaseScore();
         }
     }
@@ -106,8 +120,42 @@ public class LogicLevel5 : MonoBehaviour
     {
         if (scoreUpdater != null)
         {
-            // Increase the score using ScoreUpdater script
-            scoreUpdater.IncreaseScore(50); // You can adjust the score value as needed
+            scoreUpdater.IncreaseScore(50);
         }
+    }
+
+    public void AddSpawnedPositions(Vector3 position)
+    {
+        spawnedPositions.Add(position);
+    }
+
+    public void RemoveSpawnedPositions(Vector3 position)
+    {
+        spawnedPositions.Remove(position);
+    }
+
+    public List<Vector3> GetSpawnedPositions()
+    {
+        return spawnedPositions;
+    }
+
+    public bool IsInButtonsArea(Vector3 position)
+    {
+        if(position.y <= -200 && position.x >= 200) return true;
+        return false;
+    }
+
+    public bool IsTooCloseToOtherPlants(Vector3 position)
+    {
+        foreach (Vector3 existingPosition in GetSpawnedPositions())
+        {
+            float distance = Vector3.Distance(position, existingPosition);
+            if (distance < minDistance)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
