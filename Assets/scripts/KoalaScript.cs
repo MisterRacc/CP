@@ -20,6 +20,7 @@ public class KoalaScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.CompareTag("Babys")){
+            logic.IncreaseScore(50*logic.GetLeavesAmount());
             logic.IncreaseTimer(2*logic.GetLeavesAmount()); // increases babys lifetime 2 sec for each leave caught
             logic.ResetLeaveCounter();
         }

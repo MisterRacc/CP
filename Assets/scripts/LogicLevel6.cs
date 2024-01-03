@@ -14,8 +14,6 @@ public class LogicLevel6 : MonoBehaviour
 
     private int time;
     private int amoutOfLeaves;
-    public int lives;
-    public Text livesText;
     public Text scoreText;
     public ScoreAdder scoreUpdater;
     public TMP_Text timer_Text;
@@ -27,7 +25,6 @@ public class LogicLevel6 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UpdateLivesUI();
         time = initialTime;
         amoutOfLeaves = 0;
         UpdateTimertext();
@@ -41,11 +38,6 @@ public class LogicLevel6 : MonoBehaviour
         {
             completedLevel();
         }
-    }
-    
-    void UpdateLivesUI()
-    {
-        livesText.text = lives.ToString();
     }
 
     void UpdateTimer()
@@ -67,6 +59,15 @@ public class LogicLevel6 : MonoBehaviour
     {
         time += amount;
         UpdateTimertext();
+    }
+
+    public void IncreaseScore(int value)
+    {
+        if (scoreUpdater != null)
+        {
+            // Increase the score using ScoreUpdater script
+            scoreUpdater.IncreaseScore(value); // You can adjust the score value as needed
+        }
     }
 
     public void completedLevel()
