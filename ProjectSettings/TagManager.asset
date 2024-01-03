@@ -25,6 +25,8 @@ TagManager:
   - StopPlantsTimer
   - TrashSpawner
   - Item Button Handler
+  - Invasive
+  - Invasive Spawner
   layers:
   - Default
   - TransparentFX
