@@ -1,0 +1,329 @@
+fileFormatVersion: 2
+guid: 460f1a7973718b442a2168f04940c502
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MainKoala_14
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 270
+        width: 110
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7a9999f5c1eace429200b224bfffa55
+      internalID: 2049901157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainKoala_50
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 23
+        width: 113
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 413d76a398f134a4fb5464d37110398c
+      internalID: -276503287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainKoala_0
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 278
+        width: 110
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41f48004d66b7274693ac7c14817c548
+      internalID: -1693956516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainKoala_1
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 27
+        width: 103
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e35cf26c2d62b24082eb6f804039fa2
+      internalID: -1522095729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      MainKoala_0: -1693956516
+      MainKoala_1: -1522095729
+      MainKoala_10: 85774597
+      MainKoala_100: 888747239
+      MainKoala_101: 722292642
+      MainKoala_102: 1808893448
+      MainKoala_103: -971822284
+      MainKoala_104: -886978959
+      MainKoala_11: -855221822
+      MainKoala_12: -104042682
+      MainKoala_13: 2142810958
+      MainKoala_14: 2049901157
+      MainKoala_15: -1494710806
+      MainKoala_16: -525340693
+      MainKoala_17: -1915613534
+      MainKoala_18: 1277462768
+      MainKoala_19: 2025086401
+      MainKoala_2: -1108971868
+      MainKoala_20: -206235893
+      MainKoala_21: -2024784550
+      MainKoala_22: 496736826
+      MainKoala_23: 1796999099
+      MainKoala_24: -259141672
+      MainKoala_25: -986087150
+      MainKoala_26: -1409670535
+      MainKoala_27: 1229525483
+      MainKoala_28: 1434564506
+      MainKoala_29: 1721197717
+      MainKoala_3: 467750606
+      MainKoala_30: -1556014557
+      MainKoala_31: 1710913227
+      MainKoala_32: 359943815
+      MainKoala_33: -75261717
+      MainKoala_34: 1003906395
+      MainKoala_35: -728237539
+      MainKoala_36: 2001882041
+      MainKoala_37: -1519443936
+      MainKoala_38: 2107277579
+      MainKoala_39: -411292416
+      MainKoala_4: -426421838
+      MainKoala_40: 910715700
+      MainKoala_41: 2017504713
+      MainKoala_42: 600691293
+      MainKoala_43: 1499316726
+      MainKoala_44: -454550727
+      MainKoala_45: 1695453827
+      MainKoala_46: -1270140889
+      MainKoala_47: 1991245655
+      MainKoala_48: 1240470395
+      MainKoala_49: -341373508
+      MainKoala_5: -887012066
+      MainKoala_50: -276503287
+      MainKoala_51: -1990014497
+      MainKoala_52: 404312930
+      MainKoala_53: -1904953105
+      MainKoala_54: -1340443747
+      MainKoala_55: 1621929379
+      MainKoala_56: -1888211110
+      MainKoala_57: 1088676978
+      MainKoala_58: 1961196283
+      MainKoala_59: -896748754
+      MainKoala_6: 1584168441
+      MainKoala_60: 1323328674
+      MainKoala_61: 1862361758
+      MainKoala_62: 1412461042
+      MainKoala_63: 743171182
+      MainKoala_64: -961925784
+      MainKoala_65: 150180301
+      MainKoala_66: -546466300
+      MainKoala_67: 2113037689
+      MainKoala_68: 1563151816
+      MainKoala_69: 871102221
+      MainKoala_7: -242596180
+      MainKoala_70: -1434246756
+      MainKoala_71: 2133618131
+      MainKoala_72: -184825825
+      MainKoala_73: 1825949521
+      MainKoala_74: -1071691982
+      MainKoala_75: -609386487
+      MainKoala_76: -1847902213
+      MainKoala_77: 2015842425
+      MainKoala_78: -1313247504
+      MainKoala_79: -1617573305
+      MainKoala_8: -1197229597
+      MainKoala_80: -832842658
+      MainKoala_81: 1752396090
+      MainKoala_82: -1882683911
+      MainKoala_83: -1055118755
+      MainKoala_84: -804706507
+      MainKoala_85: -930807409
+      MainKoala_86: -1731536439
+      MainKoala_87: 1305486492
+      MainKoala_88: 950065953
+      MainKoala_89: -866558167
+      MainKoala_9: 217766195
+      MainKoala_90: -1527970735
+      MainKoala_91: -1677677583
+      MainKoala_92: -328404096
+      MainKoala_93: 1157486734
+      MainKoala_94: -652284826
+      MainKoala_95: -713604035
+      MainKoala_96: 280895060
+      MainKoala_97: -833558307
+      MainKoala_98: -151259762
+      MainKoala_99: -7675288
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -29,6 +29,7 @@ public class LeafScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.CompareTag("Player")){
             if(logic.GetLeavesAmount() < 5){
+                logic.IncreaseScore(10);
                 Destroy(gameObject);
                 logic.SetLeavesCount(1);
             }
