@@ -48,5 +48,7 @@ public class LeftSpawner : MonoBehaviour
         mu.DefineSpawn(true);
         entity.transform.SetParent(GameObject.FindGameObjectWithTag("Spawner").transform, false);
         entity.transform.position = new Vector3(spawnX, spawnY, 0);
+
+        entity.transform.localScale = new Vector3(-entity.transform.localScale.x, entity.transform.localScale.y, entity.transform.localScale.z);
     }
 }
