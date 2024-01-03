@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantsSpawnerScript : MonoBehaviour
+public class InvasiveSpawnerScript : MonoBehaviour
 {
-    public GameObject PlantPrefab;
+    public GameObject InvasivePrefab;
     
-    private float spawnRate = 3;
+    private float spawnRate = 8;
     private float timer;
     private float minX = -200;
     private float maxX = 850;
@@ -34,7 +34,8 @@ public class PlantsSpawnerScript : MonoBehaviour
             }
             else
             {
-                if(!ps.GetPlantTimerStop()){
+                if(!ps.GetPlantTimerStop())
+                {
                     spawnPlants();
                 }
             }
@@ -53,13 +54,13 @@ public class PlantsSpawnerScript : MonoBehaviour
             spawnPosition = new Vector3(randomX, randomY, 0);
         } while(logic.IsTooCloseToOtherPlants(spawnPosition) || logic.IsInButtonsArea(spawnPosition));
 
-        GameObject plant = Instantiate(PlantPrefab, new Vector3(randomX, randomY, 0), Quaternion.identity);
-        plant.transform.SetParent(GameObject.FindGameObjectWithTag("Spawner").transform, false);
+        GameObject plant = Instantiate(InvasivePrefab, new Vector3(randomX, randomY, 0), Quaternion.identity);
+        plant.transform.SetParent(GameObject.FindGameObjectWithTag("Invasive Spawner").transform, false);
 
         logic.AddSpawnedPositions(spawnPosition);
 
         plantsCount++;
-        spawnRate = Random.Range(5, 11);
+        spawnRate = Random.Range(8, 11);
         timer = 0;
     }
 
@@ -70,5 +71,10 @@ public class PlantsSpawnerScript : MonoBehaviour
         logic.RemoveSpawnedPositions(destroyedPosition);
         Destroy(plant);
         plantsCount--;
+    }
+
+    public int GetInvasivePlantsCount()
+    {
+        return plantsCount;
     }
 }
