@@ -21,12 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Leaderboard Screen.unity
     guid: 2fc33a500eab78f449c00f84e7d97c21
   - enabled: 1
-    path: Assets/Scenes/Loading Screen.unity
-    guid: bdbc2ae5477cf1a4a8e048b5fe23ecf5
-  - enabled: 1
-    path: Assets/Scenes/Highscore Screen.unity
-    guid: c04ce7429a6381540b5de237d176451a
-  - enabled: 1
     path: Assets/Scenes/Configuration Screen.unity
     guid: 1d79a56c557997f42a1c9ba3154b3875
   - enabled: 1
@@ -35,9 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoginScreen.unity
     guid: 3bfabd366176bf744aac3aa7bb98bb02
-  - enabled: 1
-    path: Assets/Scenes/FriendsScreen.unity
-    guid: 50998b5a38ba5c04b971461f9477ee4b
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: b34344a0986fc0045b574d6636a07e80
