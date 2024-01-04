@@ -140,7 +140,9 @@ public class LogicScript : MonoBehaviour
                 }
             }
             PlayerPrefs.SetInt("Level" + 1 + "Completed",2);
-            PlayerPrefs.SetInt("Level" + 2 + "Completed",1);
+            if(PlayerPrefs.GetInt("Level" + 2 + "Completed",0)!=2){
+                PlayerPrefs.SetInt("Level" + 2 + "Completed",1);
+            }
             levelCompleted = true;
         }
     }

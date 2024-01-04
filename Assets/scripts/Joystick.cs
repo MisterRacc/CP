@@ -64,7 +64,7 @@ public class Joystick : MonoBehaviour
         }
     }
 
-    // https://www.youtube.com/watch?v=uVxnvXonGXY fiquei nos 8 min mas tmb é imagens para o joystick depois vê-se isso
+    
 
     void moveCharacter(Vector2 direction){
         

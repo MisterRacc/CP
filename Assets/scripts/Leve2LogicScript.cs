@@ -134,6 +134,10 @@ public class Level2LogicScript : MonoBehaviour
                     resultText.text = "Congratulations! You have completed the level! You won: " + result + "!";
                 }
             }
+            PlayerPrefs.SetInt("Level" + 2 + "Completed",2);
+            if(PlayerPrefs.GetInt("Level" + 3 + "Completed",0)!=2){
+                PlayerPrefs.SetInt("Level" + 3 + "Completed",1);
+            }
 
             levelCompleted = true;
         }

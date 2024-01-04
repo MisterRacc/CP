@@ -60,7 +60,9 @@ public class LogicLevel4 : MonoBehaviour
                 }
             }
             PlayerPrefs.SetInt("Level" + 4 + "Completed",2);
-            PlayerPrefs.SetInt("Level" + 5 + "Completed",1);
+            if(PlayerPrefs.GetInt("Level" + 5 + "Completed",0)!=2){
+                PlayerPrefs.SetInt("Level" + 5 + "Completed",1);
+            }
 
             levelCompleted = true;
         }
