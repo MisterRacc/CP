@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ItemButtonHandler : MonoBehaviour
 {
@@ -39,37 +40,41 @@ public class ItemButtonHandler : MonoBehaviour
     {
         js = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Joystick>();
 
-        powerupTimer = FindObjectOfType<PowerupTimer>();
-        powerupDisplay = FindObjectOfType<PowerupDisplay>();
+        if (SceneManager.GetActiveScene().name != "InventoryScreen"){
+            powerupTimer = FindObjectOfType<PowerupTimer>();
+            powerupDisplay = FindObjectOfType<PowerupDisplay>();
 
-        if (powerupTimer == null){
-            Debug.LogError("PowerupTimer not found in the scene.");
+            if (powerupTimer == null){
+                Debug.LogError("PowerupTimer not found in the scene.");
+            }
         }
 
-        if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1")
-        {
-            logic1 = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-            player1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
-        }
-        else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2")
-        {
-            logic2 = GameObject.FindGameObjectWithTag("Logic").GetComponent<Level2LogicScript>();
-            bunny = GameObject.FindGameObjectWithTag("Bunny").GetComponent<BunnyController2>();
-        }
-        else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 3")
-        {
-            logic3 = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicLevel3>();
-            player3 = GameObject.FindGameObjectWithTag("Player").GetComponent<HookScript>();
-        }
-        else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 4")
-        {
-            logic4 = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicLevel4>();
-            player4 = GameObject.FindGameObjectWithTag("Player").GetComponent<TurtleScript>();
-        }
-        else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 5")
-        {
-            logic5 = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicLevel5>();
-            player5 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLvl5Script>();
+        if (SceneManager.GetActiveScene().name != "InventoryScreen"){
+            if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 1")
+            {
+                logic1 = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+                player1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+            }
+            else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 2")
+            {
+                logic2 = GameObject.FindGameObjectWithTag("Logic").GetComponent<Level2LogicScript>();
+                bunny = GameObject.FindGameObjectWithTag("Bunny").GetComponent<BunnyController2>();
+            }
+            else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 3")
+            {
+                logic3 = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicLevel3>();
+                player3 = GameObject.FindGameObjectWithTag("Player").GetComponent<HookScript>();
+            }
+            else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 4")
+            {
+                logic4 = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicLevel4>();
+                player4 = GameObject.FindGameObjectWithTag("Player").GetComponent<TurtleScript>();
+            }
+            else if(PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 5")
+            {
+                logic5 = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicLevel5>();
+                player5 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLvl5Script>();
+            }
         }
     }
 
@@ -95,13 +100,14 @@ public class ItemButtonHandler : MonoBehaviour
         // Atualizar o nome e descrição do item no painel
         itemNameText.text = itemName;
         itemDescriptionText.text = itemDescription;
-
-        if ((PlayerPrefs.GetString("CurrentLevel", "Default") != "Level 1" && PlayerPrefs.GetString("CurrentLevel", "Default") != "Level 2")
-            && (itemName == "Fire Resistance Potion" || itemName == "Invisible Potion")){
-            useItemButton.interactable = false;
-        }
-        else{
-            useItemButton.onClick.AddListener(() => UseItem(itemId));
+        if(SceneManager.GetActiveScene().name != "Inventory Screen"){
+            if (((PlayerPrefs.GetString("CurrentLevel", "Default") != "Level 1" && PlayerPrefs.GetString("CurrentLevel", "Default") != "Level 2") && (itemName == "Fire Resistance Potion" || itemName == "Invisible Potion"))
+            || (PlayerPrefs.GetString("CurrentLevel", "Default") == "Level 6" && itemName == "Health Potion")){
+                    useItemButton.interactable = false;
+            }
+            else{
+                useItemButton.onClick.AddListener(() => UseItem(itemId));
+            }
         }
     }
 
