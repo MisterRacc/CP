@@ -63,7 +63,7 @@ public class PlayfabManager : MonoBehaviour
     IEnumerator Waiter()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(0);     
+        SceneManager.LoadScene("StartScreen");     
     }
 
     public void LoginButton(){

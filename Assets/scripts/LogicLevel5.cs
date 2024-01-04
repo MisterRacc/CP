@@ -63,7 +63,9 @@ public class LogicLevel5 : MonoBehaviour
                 }
             }
             PlayerPrefs.SetInt("Level" + 5 + "Completed",2);
-            PlayerPrefs.SetInt("Level" + 6 + "Completed",1);
+            if(PlayerPrefs.GetInt("Level" + 6 + "Completed",0)!=2){
+                PlayerPrefs.SetInt("Level" + 6 + "Completed",1);
+            }
 
             levelCompleted = true;
         }
