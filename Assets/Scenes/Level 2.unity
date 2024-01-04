@@ -8954,9 +8954,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2025898158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de2777cc0b0f8fd4bac3c0699fa50752, type: 3}
+  m_Script: {fileID: 11500000, guid: 81c49f5d6d573d3429d94a9768093e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemInfoPanel: {fileID: 1418990171}
+  itemNameText: {fileID: 1229336590}
+  itemDescriptionText: {fileID: 217616546}
+  useItemButton: {fileID: 833584569}
 --- !u!114 &2025898161
 MonoBehaviour:
   m_ObjectHideFlags: 0
