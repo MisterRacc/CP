@@ -43,10 +43,8 @@ public class LevelMusicScript : MonoBehaviour
                     AudioManager.Instance.PlayLevelMusic(level6Music);
                     break;
                 default:
-                    // Default case, can be used for a general level or fallback music
                     AudioManager.Instance.PlayLevelMusic(defaultMusic);
                     break;
-                // Add more cases for other levels as needed
             }
         }
     }

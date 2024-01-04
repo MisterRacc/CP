@@ -2959,8 +2959,8 @@ MonoBehaviour:
   level2Music: {fileID: 8300000, guid: 21eb6a38fe4d5624c94aaf86f402f4ea, type: 3}
   level3Music: {fileID: 8300000, guid: 76eb40ab8a27cba45838b63fddb6f1de, type: 3}
   level4Music: {fileID: 8300000, guid: 6e7eaa7a11be8734d91bc3902a22d161, type: 3}
-  level5Music: {fileID: 0}
-  level6Music: {fileID: 0}
+  level5Music: {fileID: 8300000, guid: 262194405878f474a9e2f237984e4996, type: 3}
+  level6Music: {fileID: 8300000, guid: ed0db02784939d74f98ca08cfe1253b7, type: 3}
 --- !u!114 &606574693
 MonoBehaviour:
   m_ObjectHideFlags: 0
